@@ -8,6 +8,10 @@ import { AuthPageRoutingModule } from './auth-routing.module';
 
 import { AuthPage } from './auth.page';
 
+import { CreateclassComponent } from './createclass/createclass.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +19,11 @@ import { AuthPage } from './auth.page';
     IonicModule,
     AuthPageRoutingModule
   ],
-  declarations: [AuthPage]
+  declarations: [
+    AuthPage,
+    CreateclassComponent,
+    LoginComponent,
+    SignupComponent
+  ]
 })
 export class AuthPageModule {}
