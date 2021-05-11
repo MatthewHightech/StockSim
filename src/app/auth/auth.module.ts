@@ -26,4 +26,5 @@ import { SignupComponent } from './signup/signup.component';
     SignupComponent
   ]
 })
+
 export class AuthPageModule {}
