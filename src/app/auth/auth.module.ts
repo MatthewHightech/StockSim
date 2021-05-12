@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AuthPageRoutingModule } from './auth-routing.module';
 
 import { AuthPage } from './auth.page';
+import { LoginComponent } from './login/login.component';
 
 import { CreateclassComponent } from './createclass/createclass.component';
 import { LoginComponent } from './login/login.component';
