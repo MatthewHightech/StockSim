@@ -1,9 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>auth</ion-title>
-  </ion-toolbar>
-</ion-header>
+<header>
+  <title>Market Simulator</title>
+</header>
 
-<ion-content>
+<body>
+  <h1 class="title">Market Mimulator</h1>
+  <main>
+    <button id="LogInButton">Log In</button>
+    <button class="tertiaryButton" id="SignUpButton">Sign Up</button>
+  </main>
+  <p class="hoverUnderlineText" id="CreateClassroomButton">Create Classroom</p>
 
-</ion-content>
+  <main style="display: none;">
+    <app-login></app-login>
+    <app-signup></app-signup>
+    <app-createclass></app-createclass>
+  </main>
+</body>
