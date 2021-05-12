@@ -8,7 +8,7 @@ main {
   background-color: var(--s4);
   position: absolute;
   /*The below stuff is to center it.*/
-  top: calc(50% - var(--unit1) * 1.5);
+  top: calc(50% - var(--unit1) * 1);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 50%;
@@ -49,4 +49,20 @@ p {
   font-size: var(--font5);
   text-align: center;
   padding: var(--padding1);
+}
+
+.title {
+  margin-top: calc(20vh - var(--font5));
+}
+
+#CreateClassroomButton {
+  position: absolute;
+  bottom: calc(var(--margin1) + var(--border));
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  color: var(--off-black);
+}
+#CreateClassroomButton:hover {
+  color: var(--shadow);
 }

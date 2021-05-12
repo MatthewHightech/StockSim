@@ -15,8 +15,9 @@
   --shadow: #7d8080;
   --s1: #dce0e0; /*s for shade*/
   --s2: #cacfcf;
-  --s3: #9da1a1;
+  --s3: #717272;
   --s4: #323636;
+
   --font1: 80px;
   --font2: 60px;
   --font3: 40px;
@@ -24,14 +25,20 @@
   --font5: 20px;
   --font6: 15px;
   --font7: 12px;
+
   --unit1: 75px;
   --unit2: 300px;
+
   --padding1: 10px;
   --padding2: 25px;
   --margin1: 15px;
   --margin2: 40px;
+
   --radius: 10px;
   --border: 5px;
+  --line: 2px;
+
+  --tran: 0.3s;
 }
 
 * {
@@ -42,13 +49,46 @@
   font-family: sans-serif;
 	user-select: none;
 	-moz-user-select: none;
-  transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
+  transition-duration: var(--tran);
+  -o-transition-duration: var(--tran);
+  -moz-transition-duration: var(--tran);
+  -webkit-transition-duration: var(--tran);
 }
 
 button {
   border: none;
   color: var(--s1);
+}
+
+/* A failed attempt to create an underline animation for the clickable text */ /*
+.hoverUnderlineText {
+  display: inline-block;
+  position: relative;
+  color: black;
+}
+.hoverUnderlineText:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: var(--line);
+  bottom: 0;
+  left: 0;
+  background-color: var(--3);
+  transform-origin: bottom right;
+  transition: transform var(--tran) ease-out;
+}
+.hoverUnderlineText:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+*/
+.hoverUnderlineText:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+  font-size: var(--font2);
+  color: var(--off-black);
 }
