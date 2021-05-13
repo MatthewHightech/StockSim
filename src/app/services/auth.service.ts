@@ -27,6 +27,7 @@ export class AuthService {
         transactions: []
       });
       console.log(`Created New User: ${username} in class: ${classCode}`);
+      // ADD LOGIN HERE
     } catch (e) {
       return 'Error: ' + e;
     }
