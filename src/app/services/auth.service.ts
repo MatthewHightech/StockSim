@@ -15,4 +15,10 @@ export class AuthService {
     private router: Router,
     private db: AngularFireDatabase,
   ) {}
+
+  createStudentAccount(username: string, password: string, email: string, classroom: string) {
+  }
+
+
+
 }
