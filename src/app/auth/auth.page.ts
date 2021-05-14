@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    // static data for testing
+    const newAccount = await this.authService.createStudentAccount('test', '123456', 'test@test.test', 'ABCDEF');
+    console.log('New Account: ', newAccount);
   }
 
 }
