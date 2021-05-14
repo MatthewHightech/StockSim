@@ -1,22 +1,34 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import {
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+  canActivate,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth']);
+const redirectToDashboard = () => redirectLoggedInTo(['']);
+// ADD CUSTOM AUTH GAURD FOR ADMIN PAGE
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule),
+    ...canActivate(redirectToDashboard)
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule)
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminPageModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminPageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
 ];
