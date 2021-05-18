@@ -47,7 +47,7 @@ export class AuthService {
     try {
       const login = await this.auth.signInWithEmailAndPassword(email, password);
       console.log('Login Body: ', login);
-      this.router.navigate(['home']);
+      this.router.navigate(['/']);
       return login;
     } catch (e) {
       return e.message;

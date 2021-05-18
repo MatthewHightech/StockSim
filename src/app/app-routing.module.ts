@@ -17,7 +17,7 @@ const routes: Routes = [
     ...canActivate(redirectToDashboard)
   },
   {
-    path: 'home',
+    path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     ...canActivate(redirectUnauthorizedToLogin)
   },
@@ -25,12 +25,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminPageModule),
     ...canActivate(redirectUnauthorizedToLogin)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+  }
 ];
 
 @NgModule({

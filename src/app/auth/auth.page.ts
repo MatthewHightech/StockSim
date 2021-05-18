@@ -10,10 +10,6 @@ export class AuthPage implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  async ngOnInit() {
-    // static data for testing
-    const newAccount = await this.authService.createStudentAccount('test', '123456', 'test@test.test', 'ABCDEF');
-    console.log('New Account: ', newAccount);
-  }
+  ngOnInit() {}
 
 }
