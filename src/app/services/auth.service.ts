@@ -23,7 +23,7 @@ export class AuthService {
   async createStudentAccount(username: string, password: string, email: string, classCode: string) {
     try {
       const newAccount = await this.auth.createUserWithEmailAndPassword(email, password);
-          // CHECK IF CLASS CODE EXISTS (not a subscribe, just a 1 time read)
+          // CHECK IF Username AND Classcode EXISTS (not a subscribe, just a 1 time read)
       // await this.firestore.collection('students').doc(newAccount.user.uid).set({
       //   username,
       //   classCode,
@@ -47,13 +47,17 @@ export class AuthService {
   async createTeacherAccount(username: string, password: string, email: string, className: string) {
     try {
       const newAccount = await this.auth.createUserWithEmailAndPassword(email, password);
-          // CHECK IF CLASS CODE EXISTS (not a subscribe, just a 1 time read)
-      // await this.firestore.collection('students').doc(newAccount.user.uid).set({
+      const newClassCode = this.newClassCode();
+          // CHECK IF Username AND ClassName EXISTS (not a subscribe, just a 1 time read)
+      // await this.firestore.collection('teachers').doc(newAccount.user.uid).set({
       //   username,
-      //   classCode,
-      //   budget: 100000,
-      //   theme: 'default',
-      //   transactions: []
+      //   classCode: newClassCode
+      // });
+
+      // await this.firestore.collection('classrooms').doc().set({
+      //   className,
+      //   classCode: newClassCode,
+      //   classStartDate: Date.now()
       // });
 
       return this.login(email, password);
@@ -96,8 +100,8 @@ export class AuthService {
     console.log(`User: ${username} ClassName: ${className} Code: ${classCode}`)
   }
 
-  createClassCode() {
-
+  newClassCode() {
+    return Math.floor(1000 + Math.random() * 9000);
   }
 
 }
