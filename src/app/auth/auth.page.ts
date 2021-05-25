@@ -12,8 +12,12 @@ export class AuthPage implements OnInit {
 
   ngOnInit() {}
 
-  async tempSignUp() {
-    const signup = await this.authService.createStudentAccount('test user', '123456', 'test@test.test', 'ABCDEF');
+  async tempSignUp(signUpType: string) {
+    if (signUpType === "student") {
+      const signup = await this.authService.createStudentAccount('test student', '123456', 'student@test.test', 'ABCDEF');
+    } else {
+      const signup = await this.authService.createTeacherAccount('test teacher', '123456', 'teacher@test.test', 'My first Class');
+    }
   }
 
 }

@@ -24,15 +24,18 @@ export class AuthService {
     try {
       const newAccount = await this.auth.createUserWithEmailAndPassword(email, password);
           // CHECK IF Username AND Classcode EXISTS (not a subscribe, just a 1 time read)
-      // await this.firestore.collection('students').doc(newAccount.user.uid).set({
-      //   username,
-      //   classCode,
-      //   budget: 100000,
-      //   theme: 'default',
-      //   transactions: []
-      // });
       this.isValid(username, undefined, classCode);
 
+      await this.firestore.collection('students').doc(newAccount.user.uid).set({
+        classCode,
+        budget: 100000,
+        theme: 'default',
+        transactions: []
+      });
+
+      await this.firestore.collection('students').doc(newAccount.user.uid).collection('public').doc('info').set({
+        username
+      });
 
       return this.login(email, password);
     } catch (e) {
@@ -47,18 +50,38 @@ export class AuthService {
   async createTeacherAccount(username: string, password: string, email: string, className: string) {
     try {
       const newAccount = await this.auth.createUserWithEmailAndPassword(email, password);
-      const newClassCode = this.newClassCode();
           // CHECK IF Username AND ClassName EXISTS (not a subscribe, just a 1 time read)
-      // await this.firestore.collection('teachers').doc(newAccount.user.uid).set({
-      //   username,
-      //   classCode: newClassCode
-      // });
 
-      // await this.firestore.collection('classrooms').doc().set({
-      //   className,
-      //   classCode: newClassCode,
-      //   classStartDate: Date.now()
-      // });
+      //this.isValid(username, className, undefined);
+      const newClassCode = this.newClassCode();
+      const teacherDoc = await this.firestore.collection('teachers').doc(newAccount.user.uid).set({
+        username,
+        classCode: newClassCode
+      }).then(res => {
+        console.log("res ", res)
+      })
+      .catch(e => {
+        console.log("error ", e)
+      });
+
+      await this.firestore.collection('classrooms').doc(newClassCode.toString()).set({
+        className,
+        classStartDate: Date.now()
+      }).then(res => {
+        console.log("res ", res)
+      })
+      .catch(e => {
+        console.log("error ", e)
+      });
+
+      await this.firestore.collection('classrooms').doc(newClassCode.toString()).collection('public').doc('code').set({
+        classCode: newClassCode,
+      }).then(res => {
+        console.log("res ", res)
+      })
+      .catch(e => {
+        console.log("error ", e)
+      });
 
       return this.login(email, password);
     } catch (e) {
@@ -96,8 +119,48 @@ export class AuthService {
 
   // helper functions
 
-  isValid(username: string, className?: string, classCode?: string) {
-    console.log(`User: ${username} ClassName: ${className} Code: ${classCode}`)
+  // params: username, possible classname or undefined, possible classcode or undefined
+  // return: undefined if all params are valid, or an error string of the first invalid param.
+  async isValid(username: string, className?: string, classCode?: string) {
+    // searches users collection for username equal to search key
+    let avalible = await this.avalibleInFirestore('public', 'username', username);
+    if (!avalible) {
+      return "Username is taken";
+    }
+
+    if (className !== undefined) {
+      avalible = await this.avalibleInFirestore('public', 'className', className);
+      if (!avalible) {
+        return "ClassName is taken";
+      }
+    } else if (classCode !== undefined) {
+      let doesNotExist = await this.avalibleInFirestore('public', 'classCode', classCode);
+      if (doesNotExist) {
+        return "Class Code doesn't exist";
+      }
+    }
+
+    return undefined
+  }
+
+  // params: firebase collection name, firebase field name, query to search for
+  // return: boolean. True if the query is NOT found (it's avalible) and false if it exists.
+  async avalibleInFirestore(collection: string, field: string, query: string) {
+    const avalible = await this.firestore.collectionGroup(collection, ref => ref.where(field, '==', query))
+    .get()
+    .toPromise()
+    .then((res) => {
+      if (res.empty) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .catch(e => {
+      console.log("Query: " + query + "  -  ERROR: ", e)
+    });
+
+    return avalible;
   }
 
   newClassCode() {
