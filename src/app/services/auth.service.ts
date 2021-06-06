@@ -141,7 +141,8 @@ export class AuthService {
         return "ClassName is taken";
       }
     } else if (classCode !== undefined) {
-      let doesNotExist = await this.avalibleInFirestore('classCode', classCode);
+      let doesNotExist = await this.avalibleInFirestore('classCode', parseInt(classCode));
+      console.log("Query")
       if (doesNotExist) {
         return "Class Code doesn't exist";
       }
@@ -152,7 +153,7 @@ export class AuthService {
 
   // params: firebase collection name, firebase field name, query to search for
   // return: boolean. True if the query is NOT found (it's avalible) and false if it exists.
-  async avalibleInFirestore(field: string, query: string) {
+  async avalibleInFirestore(field: string, query: any) {
     const avalible = await this.firestore.collectionGroup("public", ref => ref.where(field, '==', query))
     .get()
     .toPromise()

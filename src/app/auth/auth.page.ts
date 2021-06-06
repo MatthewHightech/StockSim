@@ -14,9 +14,9 @@ export class AuthPage implements OnInit {
 
   async tempSignUp(signUpType: string) {
     if (signUpType === "student") {
-      const signup = await this.authService.createStudentAccount('test student', '123456', 'student@test.test', 'ABCDEF');
+      const signup = await this.authService.createStudentAccount('test student 2', '123456', 'student@test.test', '2087');
     } else {
-      const signup = await this.authService.createTeacherAccount('test teacher', '123456', 'teacher@test.test', 'My first Class');
+      const signup = await this.authService.createTeacherAccount('test teacher', '123456', 'teacher@test.test', 'My second Class');
     }
   }
 
