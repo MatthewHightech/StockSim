@@ -24,7 +24,6 @@ export class AuthService {
     try {
       let err = await this.isValid(username, undefined, classCode);
       if (err != undefined) {
-        console.log("Error: ", err)
         return err;
       }
 
@@ -55,7 +54,6 @@ export class AuthService {
     try {
       let err = await this.isValid(username, className, undefined);
       if (err != undefined) {
-        console.log("Error: ", err)
         return err;
       }
 

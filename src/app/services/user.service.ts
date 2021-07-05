@@ -67,10 +67,8 @@ export class UserService {
     .toPromise()
     .then(res => {
       if (res.empty) {
-        console.log("Student is empty")
         return false
       } else {
-        console.log("Student has value")
         return true
       }
     }).catch(e => {

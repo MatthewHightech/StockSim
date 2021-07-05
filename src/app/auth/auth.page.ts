@@ -21,7 +21,7 @@ export class AuthPage implements OnInit {
       this.err = await this.authService.createTeacherAccount('test teacher 5', '123456', 'teacher5@test.test', 'My fifth Class');
     }
     if (this.err != null) {
-      console.log("Err: ", this.err)
+      console.log("Error: ", this.err)
       return
     }
     this.loadAppropriateUserData()
@@ -38,10 +38,11 @@ export class AuthPage implements OnInit {
 
   async loadAppropriateUserData() {
     const isStudent = await this.userService.isUserStudent()
-    console.log("isStudent: ", isStudent)
     if (isStudent) {
+      console.log("This user is a student")
       this.userService.initStudent();
     } else {
+      console.log("This user is a teacher")
       this.userService.initTeacher();
     }
   }
