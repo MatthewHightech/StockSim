@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,16 +8,41 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-
-  constructor(private authService: AuthService) { }
+  err = null;
+  constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {}
 
   async tempSignUp(signUpType: string) {
+
     if (signUpType === "student") {
-      const signup = await this.authService.createStudentAccount('test student 2', '123456', 'student@test.test', '2087');
+      this.err = await this.authService.createStudentAccount('test student 5', '123456', 'student5@test.test', '1488');
     } else {
-      const signup = await this.authService.createTeacherAccount('test teacher', '123456', 'teacher@test.test', 'My second Class');
+      this.err = await this.authService.createTeacherAccount('test teacher 5', '123456', 'teacher5@test.test', 'My fifth Class');
+    }
+    if (this.err != null) {
+      console.log("Err: ", this.err)
+      return
+    }
+    this.loadAppropriateUserData()
+  }
+
+  async tempLogin(userType: string) {
+    if (userType == 'student') {
+      this.err = await this.authService.login("student5@test.test", "123456");
+    } else {
+      this.err = await this.authService.login("teacher5@test.test", "123456");
+    }
+    this.loadAppropriateUserData()
+  }
+
+  async loadAppropriateUserData() {
+    const isStudent = await this.userService.isUserStudent()
+    console.log("isStudent: ", isStudent)
+    if (isStudent) {
+      this.userService.initStudent();
+    } else {
+      this.userService.initTeacher();
     }
   }
 

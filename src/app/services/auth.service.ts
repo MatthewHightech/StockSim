@@ -25,7 +25,7 @@ export class AuthService {
       let err = await this.isValid(username, undefined, classCode);
       if (err != undefined) {
         console.log("Error: ", err)
-        return
+        return err;
       }
 
       const newAccount = await this.auth.createUserWithEmailAndPassword(email, password);
@@ -56,19 +56,23 @@ export class AuthService {
       let err = await this.isValid(username, className, undefined);
       if (err != undefined) {
         console.log("Error: ", err)
-        return
+        return err;
       }
 
       const newAccount = await this.auth.createUserWithEmailAndPassword(email, password);
       const newClassCode = this.newClassCode();
-      const teacherDoc = await this.firestore.collection('teachers').doc(newAccount.user.uid).set({
-        username,
+
+      await this.firestore.collection('teachers').doc(newAccount.user.uid).set({
         classCode: newClassCode
       }).then(res => {
         console.log("res ", res)
       })
       .catch(e => {
         console.log("error ", e)
+      });
+
+      await this.firestore.collection('teachers').doc(newAccount.user.uid).collection('public').doc('info').set({
+        username
       });
 
       await this.firestore.collection('classrooms').doc(newClassCode.toString()).set({
@@ -80,7 +84,7 @@ export class AuthService {
         console.log("error ", e)
       });
 
-      await this.firestore.collection('classrooms').doc(newClassCode.toString()).collection('public').doc('code').set({
+      await this.firestore.collection('classrooms').doc(newClassCode.toString()).collection('public').doc('info').set({
         className,
         classCode: newClassCode,
       }).then(res => {
@@ -106,7 +110,7 @@ export class AuthService {
       const login = await this.auth.signInWithEmailAndPassword(email, password);
       console.log('Login Body: ', login);
       this.router.navigate(['/']);
-      return login;
+      return null;
     } catch (e) {
       return e.message;
     }
@@ -118,7 +122,7 @@ export class AuthService {
     try {
       const logout = await this.auth.signOut();
       this.router.navigate(['/', 'auth']);
-      return logout;
+      return null;
     } catch (e) {
       return e.message;
     }
@@ -154,11 +158,10 @@ export class AuthService {
   // params: firebase collection name, firebase field name, query to search for
   // return: boolean. True if the query is NOT found (it's avalible) and false if it exists.
   async avalibleInFirestore(field: string, query: any) {
-    const avalible = await this.firestore.collectionGroup("public", ref => ref.where(field, '==', query))
+    return await this.firestore.collectionGroup("public", ref => ref.where(field, '==', query))
     .get()
     .toPromise()
     .then((res) => {
-      console.log("RES: ", res)
       if (res.empty) {
         return true;
       } else {
@@ -168,8 +171,6 @@ export class AuthService {
     .catch(e => {
       console.log("Query: " + query + "  -  ERROR: ", e)
     });
-
-    return avalible;
   }
 
   newClassCode() {
