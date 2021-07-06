@@ -120,6 +120,7 @@ export class AuthService {
     try {
       const logout = await this.auth.signOut();
       this.router.navigate(['/', 'auth']);
+      // TODO: Clear user data
       return null;
     } catch (e) {
       return e.message;
