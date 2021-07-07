@@ -6,6 +6,8 @@ import {
   redirectLoggedInTo,
   canActivate,
 } from '@angular/fire/auth-guard';
+import { AdminGaurd } from './gaurds/admin.gaurd';
+import { StudentGaurd } from './gaurds/student.gaurd';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth']);
 const redirectToDashboard = () => redirectLoggedInTo(['']);
@@ -19,12 +21,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    canActivate: [StudentGaurd]
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminPageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    canActivate: [AdminGaurd]
   }
 ];
 
