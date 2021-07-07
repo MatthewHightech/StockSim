@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'firebase/auth';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AuthService {
     private auth: AngularFireAuth,
     private router: Router,
     private firestore: AngularFirestore,
+    private userService: UserService
   ) {}
 
   // creates account for student with email and password. Once that is approved and error free, a
@@ -106,8 +108,12 @@ export class AuthService {
   async login(email: string, password: string) {
     try {
       const login = await this.auth.signInWithEmailAndPassword(email, password);
-      console.log('Login Body: ', login);
-      this.router.navigate(['/']);
+      if (await this.userService.isUserStudent()) {
+        this.router.navigate(['/']);
+      } else {
+        console.log("admin navigate")
+        this.router.navigate(['/', 'admin']);
+      }
       return null;
     } catch (e) {
       return e.message;

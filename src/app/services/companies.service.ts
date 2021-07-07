@@ -25,7 +25,7 @@ export class CompaniesService {
     });
 
     for (let i = 0; i < size; i++) {
-      company = await this.firestore.collection('students').doc<company>(i.toString())
+      company = await this.firestore.collection('companies').doc<company>(i.toString())
       .get()
       .toPromise()
       .then(res => {
@@ -45,6 +45,17 @@ export class CompaniesService {
     console.log("Company Data: ", this.companies);
 
   }
+
+  // Used to automatically create companies
+  // async createCompanies() {
+  //   for (let i = 0; i < 7; i++) {
+  //     await this.firestore.collection('companies').doc<company>(i.toString()).set({
+  //       name: "",
+  //       bio: "",
+  //       priceDiff: [0, 0, 0, 0, 0]
+  //     })
+  //   }
+  // }
 
   // TODO: Setup super-admin page to add or edit tool data
 

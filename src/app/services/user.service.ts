@@ -61,19 +61,25 @@ export class UserService {
   // helper functions
 
   async isUserStudent() {
+    if (await this.auth.currentUser == null) {
+      return null
+    }
     const userID = (await this.auth.currentUser).uid;
-    return await this.firestore.collection("students", ref => ref.where("__name__", '==', userID))
+    let isStudent = null;
+    isStudent = await this.firestore.collection("students", ref => ref.where("__name__", '==', userID))
     .get()
     .toPromise()
     .then(res => {
-      if (res.empty) {
-        return false
-      } else {
+      if (!res.empty) {
         return true
+      } else {
+        return false
       }
     }).catch(e => {
       return e;
     });
+
+    return isStudent
   }
 
   async getUsername(collection, userID) {
