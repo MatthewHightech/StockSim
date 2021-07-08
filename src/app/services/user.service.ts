@@ -83,7 +83,6 @@ export class UserService {
   }
 
   async getUsername(collection, userID) {
-
     return await this.firestore.collection(collection).doc(userID).collection('public').doc<{username: string}>('info')
     .get()
     .toPromise()
@@ -93,6 +92,11 @@ export class UserService {
       console.log("Cannot find user: ", e);
       return "Cannot get Username";
     })
+  }
+
+  clear() {
+
+    
   }
 
 }

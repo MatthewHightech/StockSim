@@ -16,25 +16,6 @@ export class HomePage {
     public authService: AuthService,
     public userService: UserService,
     public companiesService: CompaniesService
-    ) {
-      router.events.subscribe(val => {
-        if (val instanceof NavigationEnd) {
-          console.log(val.url)
-        }
-      })
-    }
-
-    async loadAppropriateData() {
-      const isStudent = await this.userService.isUserStudent()
-      if (isStudent) {
-        this.userService.initStudent();
-        // load companies
-        // load news
-      } else {
-        this.userService.initTeacher();
-        // load class data
-        // load student data
-      }
-    }
+    ) {}
 
 }
