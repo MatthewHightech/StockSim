@@ -1,3 +1,50 @@
 * {
   margin: 0;
 }
+
+.navTop {
+  background-color: var(--mainm);
+  height: var(--unit1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navTop .navElement {
+  background-color: var(--mainl);
+  height: var(--unit1);
+  line-height: var(--unit1);
+  padding-left: var(--padding1);
+  padding-right: var(--padding1);
+  font-size: var(--font4);
+}
+.navElement.left {
+  float: left;
+}
+.navElement.center {
+  margin: auto;
+}
+.navElement.right {
+  float: right;
+}
+
+.navSide {
+  background-color: var(--accentd);
+  height: 100%;
+  width: var(--unit2);
+  top: 0;
+  left: 0;
+}
+
+.navSide .navElement {
+  background-color: var(--accentm);
+}
+
+.navElement {
+  display: inline;
+}
+
+ul {
+  list-style-type: none;
+}
