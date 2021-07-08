@@ -13,9 +13,7 @@ export class StudentGaurd implements CanActivate {
   ) {}
 
   async canActivate(next, state) {
-    console.log("Is student (student): ", await this.userService.isUserStudent())
     if (await this.userService.isUserStudent()) {
-      console.log("Student page")
       return true
     } else if (await this.userService.isUserStudent() == false) {
       this.router.navigate(['/', 'admin']);

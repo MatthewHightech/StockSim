@@ -111,7 +111,6 @@ export class AuthService {
       if (await this.userService.isUserStudent()) {
         this.router.navigate(['/']);
       } else {
-        console.log("admin navigate")
         this.router.navigate(['/', 'admin']);
       }
       return null;

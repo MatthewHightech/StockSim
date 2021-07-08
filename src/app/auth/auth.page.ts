@@ -24,7 +24,6 @@ export class AuthPage implements OnInit {
       console.log("Error: ", this.err)
       return
     }
-    this.loadAppropriateData()
   }
 
   async tempLogin(userType: string) {
@@ -36,19 +35,6 @@ export class AuthPage implements OnInit {
     if (this.err != null) {
       console.log("Error: ", this.err)
       return
-    }
-    this.loadAppropriateData()
-  }
-
-  async loadAppropriateData() {
-    const isStudent = await this.userService.isUserStudent()
-    if (isStudent) {
-      this.userService.initStudent();
-      
-    } else {
-      this.userService.initTeacher();
-      // load class data
-      // load student data
     }
   }
 
