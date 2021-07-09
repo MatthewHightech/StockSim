@@ -59,9 +59,9 @@
   cursor: pointer;
 }
 .navSide .navElement.active {
-  border-left: 6px solid var(--c1m);
+  border-left: calc(var(--padding1) * 0.6) solid var(--c1m);
   padding-left: calc(var(--padding1) * 2);
-  background-color: var(--white);
+  background: linear-gradient(90deg, var(--c1l) 0%, var(--white) 90%);
 }
 
 
@@ -102,5 +102,5 @@ ul {
   top: calc(var(--unit1) + var(--padding1));
   line-height: var(--unit1);
   width: calc(100% - var(--unit2));
-  height: calc(100% - var(--unit1));
+  height: calc(100% - var(--unit1) - var(--padding1));
 }
