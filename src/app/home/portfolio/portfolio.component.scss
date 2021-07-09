@@ -4,7 +4,15 @@ body {
   background-color: var(--white);
 }
 
-p {
-  color: blue;
+.main {
+  border-radius: var(--padding1);
+  float: left;
+  margin: var(--padding1) 0 0 var(--padding1);
+  background-color: var(--s1);
+  width: calc(70% - var(--padding1) * 3);
+  height: calc(50% - var(--padding1) * 2);
+}
 
+p {
+  color: var(--c1m);
 }

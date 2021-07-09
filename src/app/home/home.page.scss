@@ -1,7 +1,7 @@
 
 
 .navTop {
-  background: linear-gradient(90deg, rgba(233,57,23,1) 0%, rgba(235,19,147,1) 100%);
+  background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
   height: calc(var(--unit1) + var(--padding1));
   position: fixed;
   top: 0;
@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 .navSide .navElement.active {
-  border-left: 6px solid rgba(233,57,23,1);
+  border-left: 6px solid var(--c1m);
   padding-left: calc(var(--padding1) * 2);
   background-color: var(--white);
 }
@@ -92,7 +92,7 @@ ul {
   text-align: center;
   font-size: var(--font4);
   left: calc(var(--unit2) - 1.3em);
-  color: rgba(233,57,23,1);
+  color: var(--c1m);
   top: calc(var(--unit1) * 3 + var(--padding1) * 3 + 0.05em);
 }
 

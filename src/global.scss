@@ -2,13 +2,9 @@
 @import "~@ionic/angular/css/core.css";
 
 :root {
-  --mainm: #2caee6;
-  --maind: #187cc4; /*d for dark*/
-  --mainl: #69dafa; /*l for light*/
-  --mainh: #d4f6ff; /*h for hover*/
-  --accentm: #e6e629;
-  --accentl: #f7f774;
-  --accentd: #cfcf0e;
+  --c1m: rgb(22, 197, 217); /*Colour 1 Main*/
+  --c2m: rgb(132, 22, 217); /*Colour 2 Main*/
+
   --white: #fbfdfd;
   --off-white: #f5f7f7;
   --black: #010712;
@@ -58,29 +54,6 @@ button {
   color: var(--s1);
 }
 
-/* A failed attempt to create an underline animation for the clickable text */ /*
-.hoverUnderlineText {
-  display: inline-block;
-  position: relative;
-  color: black;
-}
-.hoverUnderlineText:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: var(--line);
-  bottom: 0;
-  left: 0;
-  background-color: var(--3);
-  transform-origin: bottom right;
-  transition: transform var(--tran) ease-out;
-}
-.hoverUnderlineText:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-*/
 .hoverUnderlineText:hover {
   text-decoration: underline;
 }
