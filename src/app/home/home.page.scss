@@ -32,7 +32,8 @@
 }
 
 .navSide {
-  background-color: var(--s1);
+  z-index: 3;
+  background-color: var(--s3);
   height: 100%;
   width: var(--unit2);
   padding-top: calc(var(--unit1) + var(--padding1));
@@ -58,10 +59,13 @@
   top: calc(var(--unit1) * 3 + var(--padding1) * 3.8 + 0.05em);
   cursor: pointer;
 }
-.navSide .navElement.active {
+.navSide .active {
   border-left: calc(var(--padding1) * 0.6) solid var(--c1m);
-  padding-left: calc(var(--padding1) * 2);
-  background: linear-gradient(90deg, var(--c1l) 0%, var(--white) 90%);
+  padding-left: calc(var(--padding1) * 3);
+  background: linear-gradient(90deg, var(--c1l) 0%, var(--white) 4%);
+}
+.navSide .smallNavElement.active {
+  padding-left: calc(var(--padding1) * 4);
 }
 
 

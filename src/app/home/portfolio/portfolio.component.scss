@@ -38,7 +38,8 @@ p:not(.title) {
 
 .underline {
   float: left;
-  background: linear-gradient(90deg, var(--c1m) 0%, var(--c3m) 100%);
+  background-color: var(--c3m);
+  /*background: linear-gradient(90deg, var(--c1m) 0%, var(--c3m) 100%);*/
   width: calc(var(--unit1) * 2);
   height: calc(var(--padding1) * 0.6);
 }
