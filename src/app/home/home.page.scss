@@ -1,3 +1,106 @@
-* {
-  margin: 0;
+
+
+.navTop {
+  background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
+  height: calc(var(--unit1) + var(--padding1));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navTop .navElement {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--white);
+  font-weight: 700;
+  height: var(--unit1);
+  line-height: var(--unit1);
+  padding: calc(var(--padding1) / 2) calc(var(--padding1) * 2) calc(var(--padding1) / 2) calc(var(--padding1) * 2);
+  font-size: var(--font4);
+}
+
+.navElement.left {
+  float: left;
+}
+.navElement.center {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.navElement.right {
+  float: right;
+}
+
+.navSide {
+  background-color: var(--s1);
+  height: 100%;
+  width: var(--unit2);
+  padding-top: calc(var(--unit1) + var(--padding1));
+  top: 0;
+  left: 0;
+}
+
+.navSide .navElement {
+  display: block;
+  background-color: var(--s1);
+  height: var(--unit1);
+  line-height: var(--unit1);
+  padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);
+  font-size: var(--font4);
+}
+.navSide .navElement:hover {
+  cursor: pointer;
+}
+.navSide .navElement:not(.noHover):hover {
+  background-color: var(--white);
+}
+.navSide .navElement:hover .expander {
+  top: calc(var(--unit1) * 3 + var(--padding1) * 3.8 + 0.05em);
+  cursor: pointer;
+}
+.navSide .navElement.active {
+  border-left: 6px solid var(--c1m);
+  padding-left: calc(var(--padding1) * 2);
+  background-color: var(--white);
+}
+
+
+.smallNavElement{
+  background-color: var(--s1);
+  font-size: var(--font5);
+  height: calc(var(--unit1) / 1.5);
+  line-height: calc(var(--unit1) / 1.5);
+  padding-left: calc(var(--padding1) * 4);
+}
+.smallNavElement:hover {
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.wrapper.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.expander {
+  position: absolute;
+  text-align: center;
+  font-size: var(--font4);
+  left: calc(var(--unit2) - 1.3em);
+  color: var(--c1m);
+  top: calc(var(--unit1) * 3 + var(--padding1) * 3 + 0.05em);
+}
+
+#Holder {
+  position: absolute;
+  left: var(--unit2);
+  top: calc(var(--unit1) + var(--padding1));
+  line-height: var(--unit1);
+  width: calc(100% - var(--unit2));
+  height: calc(100% - var(--unit1));
 }
