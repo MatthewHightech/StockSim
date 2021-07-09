@@ -48,12 +48,15 @@
   padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);
   font-size: var(--font4);
 }
+.navSide .navElement:hover {
+  cursor: pointer;
+}
 .navSide .navElement:not(.noHover):hover {
   background-color: var(--white);
-  cursor: pointer;
 }
 .navSide .navElement:hover .expander {
   top: calc(var(--unit1) * 3 + var(--padding1) * 3.8 + 0.05em);
+  cursor: pointer;
 }
 .navSide .navElement.active {
   border-left: 6px solid rgba(233,57,23,1);
