@@ -4,15 +4,41 @@ body {
   background-color: var(--white);
 }
 
-.main {
+.container {
   border-radius: var(--padding1);
-  float: left;
   margin: var(--padding1) 0 0 var(--padding1);
   background-color: var(--s1);
-  width: calc(70% - var(--padding1) * 3);
-  height: calc(50% - var(--padding1) * 2);
+  padding: calc(var(--padding1) * 2);
+}
+.container.main {
+  float: left;
+  width: calc(70% - var(--padding1) * 8);
+  height: calc(60% - var(--padding1) * 7);
+}
+.container.right {
+  float: left;
+  width: calc(30% - var(--padding1) * 3);
+  height: calc(60% - var(--padding1) * 7);
+}
+.container.bottom {
+  position: absolute;
+  bottom: var(--padding1);
+  width: calc(100% - var(--padding1) * 6);
+  height: calc(40% - var(--padding1) * 4);
 }
 
-p {
-  color: var(--c1m);
+p.title {
+  font-size: var(--font4);
+}
+
+p:not(.title) {
+  margin-top: calc(var(--padding1) * 2);
+  line-height: 1.5em;
+}
+
+.underline {
+  float: left;
+  background: linear-gradient(90deg, var(--c1m) 0%, var(--c3m) 100%);
+  width: calc(var(--unit1) * 2);
+  height: calc(var(--padding1) * 0.6);
 }

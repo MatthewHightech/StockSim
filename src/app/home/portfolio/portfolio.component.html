@@ -1,12 +1,23 @@
 
 <body>
-  <div class="main">
-    <canvas id="chart"></canvas>
+
+  <div class="container main">
+    <p class="title">Market Trends</p>
+    <div style="width: 100%; height: calc(100% - 3em); margin: auto; background-color: var(--white); border-radius: var(--padding1);">
+
+    </div>
+
+    <!-- <canvas id="chart"></canvas> -->
+
   </div>
-  <div class="rightElement">
-    Assets go here.
+  <div class="container right">
+    <p class="title">Asset Allocation</p>
+    <div class="underline"></div>
+    <p>Here we'll have that little pie/donut chart that shows where your assets are, with links and hoverable stats/information. Underneath here will also be the main pieces of information like Net Worth and Market Asset Value; however, on smaller screens and if the Transaction History ends up here, those pieces of information will relocate to under the main graph.</p>
   </div>
-  <div class="bottom">
-    Transaction history, in vertical elements, goes here.
+  <div class="container bottom">
+    <p class="title">Transaction History</p>
+    <div class="underline"></div>
+    <p>I'm thinking the transaction information could be in little horizontally-scrolling cards. If that's not an idea y'all appreciate, lmk and I'll reorder the layout to hopefully have a vertical-scrolling transaction history on the right.</p>
   </div>
 </body>
