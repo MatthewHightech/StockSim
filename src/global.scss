@@ -15,7 +15,7 @@
   --off-black: #19191a;
   --blackh: #4d4f4f;
   --shadow: #7d8080;
-  --s1: #dce0e0; /*s for shade*/
+  --s1: #eff1f1; /*s for shade*/
   --s2: #cacfcf;
   --s3: #717272;
   --s4: #323636;
@@ -28,7 +28,7 @@
   --font6: 0.75em;
 
   --unit1: 50px;
-  --unit2: 250px;
+  --unit2: 200px;
 
   --padding1: 10px;
   --padding2: 25px;
@@ -44,10 +44,7 @@
 
 * {
   margin: 0;
-  background-color: var(--white);
-  font-size: 15px;
-  color: var(--black);
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 	user-select: none;
 	-moz-user-select: none;
   transition-duration: var(--tran);

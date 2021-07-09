@@ -1,31 +1,32 @@
 <nav class="navTop">
-  <div class="navElement left">Username</div>
-  <div class="navElement center">PAGE TITLE</div>
-  <div class="navElement right">Budget: $15,000</div>
+  <div class="navElement left">mattDawg92</div>
+  <div class="navElement center">News</div>
+  <div class="navElement right"><span style="font-weight: 300;">Budget:</span> $2,200</div>
 </nav>
 
 <nav class="navSide">
-  <div class="activeSlider"></div>
-  <ul class="wrapper top">
-    <li class="navElement">Portfolio</li>
-    <li class="navElement">News</li>
-    <ul class="wrapper dropDown">
-      <li class="navElement small">Company 1</li>
-      <li class="navElement small">Company 2</li>
-      <li class="navElement small">Company 3</li>
-      <li class="navElement small">Company 4</li>
-      <li class="navElement small">Company 5</li>
-      <li class="navElement small">Company 6</li>
-      <li class="navElement small">Company 7</li>
-    </ul>
-  </ul>
-  <ul class="wrapper bottom">
-    <li class="navElement">Settings</li>
-    <li class="navElement">Log Out</li>
-  </ul>
+  <div class="navElement">Portfolio</div>
+  <div class="navElement active">News</div>
+  <div class="navElement noHover">Companys<div class="expander"><span class="material-icons">expand_more</span></div></div>
+
+  <div class="wrapper dropDown">
+    <div class="smallNavElement">Company 1</div>
+    <div class="smallNavElement">Company 2</div>
+    <div class="smallNavElement">Company 3</div>
+    <div class="smallNavElement">Company 4</div>
+    <div class="smallNavElement">Company 5</div>
+    <div class="smallNavElement">Company 6</div>
+    <div class="smallNavElement">Company 7</div>
+  </div>
+  <div class="wrapper bottom">
+    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Settings</div>
+    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Log Out</div>
+  </div>
 </nav>
 
-<ion-content>
+<content id="Holder">
   <app-portfolio></app-portfolio>
-  <ion-button (click)="authService.logout()">Temp Logout</ion-button>
-</ion-content>
+</content>
+
+
+<ion-button style="position: absolute; left: 5000px; top: 500px;" (click)="authService.logout()">Temp Logout (absolute positioning :))</ion-button>
