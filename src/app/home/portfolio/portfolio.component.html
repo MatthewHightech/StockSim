@@ -6,12 +6,53 @@
   -->
   <div class="container main">
     <p class="title">Market Trends</p>
-    <div style="width: 100%; height: calc(100% - 3em); margin: auto; background-color: var(--white); border-radius: var(--padding1);"></div>
+    <canvas id="MainGraph"></canvas>
   </div>
-  <div class="container right">
+  <div class="history">
+    <p class="title">Transaction History</p>
+    <div class="underline"></div>
+    <div class="transactionScroller">
+      <div class="container transaction buy">
+        <p class="main"><span style="font-weight: 400;">$4320</span> spent on General Motors;</p>
+        <p class="secondary"><span style="font-weight: 400;">240</span> stocks purchased.</p>
+        <p class="tertiary">Day 2</p>
+        <p class="tertiary right">$18/stock</p>
+      </div>
+      <div class="container transaction sell">
+        <p class="main"><span style="font-weight: 400;">$5520</span> made on General Motors;</p>
+        <p class="secondary"><span style="font-weight: 400;">240</span> stocks sold.</p>
+        <p class="tertiary">Day 3</p>
+        <p class="tertiary right">$23/stock</p>
+      </div>
+      <div class="container transaction buy">
+        <p class="main"><span style="font-weight: 400;">$11,000</span> spent on Watchdog;</p>
+        <p class="secondary"><span style="font-weight: 400;">1100</span> stocks purchased.</p>
+        <p class="tertiary">Day 3</p>
+        <p class="tertiary right">$10/stock</p>
+      </div>
+      <div class="container transaction buy">
+        <p class="main"><span style="font-weight: 400;">$3850</span> spent on Guco;</p>
+        <p class="secondary"><span style="font-weight: 400;">770</span> stocks purchased.</p>
+        <p class="tertiary">Day 3</p>
+        <p class="tertiary right">$5/stock</p>
+      </div>
+      <div class="container transaction sell">
+        <p class="main"><span style="font-weight: 400;">$6930</span> made on Guco;</p>
+        <p class="secondary"><span style="font-weight: 400;">770</span> stocks sold.</p>
+        <p class="tertiary">Day 5</p>
+        <p class="tertiary right">$9/stock</p>
+      </div>
+      <div class="container transaction sell">
+        <p class="main"><span style="font-weight: 400;">$9900</span> made on Watchdog;</p>
+        <p class="secondary"><span style="font-weight: 400;">1100</span> stocks sold.</p>
+        <p class="tertiary">Day 5</p>
+        <p class="tertiary right">$9/stock</p>
+      </div>
+    </div>
+  </div>
+  <div class="container bottom">
     <p class="title">Asset Allocation</p>
     <div class="underline"></div>
-    <p>Here we'll have that little pie/donut chart that shows where your assets are, with links and hoverable stats/information. Underneath here will also be the main pieces of information like Net Worth and Market Asset Value; however, on smaller screens and if the Transaction History ends up here, those pieces of information will relocate to under the main graph.</p>
   </div>
   <!-- <div class="container bottom">
     <p class="title">Transaction History</p>
@@ -23,24 +64,4 @@
       <li>Time of purchase, and price at that time.</li>
     </ul>
   </div> -->
-  <div class="transactionHolder">
-    <div class="container transaction">
-      <p class="main"><strong>$4320</strong> spent on General Motors.</p>
-      <p class="secondary"><strong>240</strong> stocks purchased.</p>
-      <p class="tertiary">Day 2</p>
-      <p class="tertiary right">$18/stock</p>
-    </div>
-    <div class="container transaction">
-      <p class="main"><strong>$4320</strong> spent on General Motors.</p>
-      <p class="secondary"><strong>240</strong> stocks purchased.</p>
-      <p class="tertiary">Day 2</p>
-      <p class="tertiary right">$18/stock</p>
-    </div>
-    <div class="container transaction">
-      <p class="main"><strong>$4320</strong> spent on General Motors.</p>
-      <p class="secondary"><strong>240</strong> stocks purchased.</p>
-      <p class="tertiary">Day 2</p>
-      <p class="tertiary right">$18/stock</p>
-    </div>
-  </div>
 </body>

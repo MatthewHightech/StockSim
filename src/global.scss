@@ -7,6 +7,11 @@
   --c2m: rgb(132, 22, 217); /*Colour 2 Main*/
   --c3m: rgb(65, 85, 217); /*Colour 3 Main*/
 
+  --green: #c3f2bb;
+  --greenText: #7fba75;
+  --red: #f2bbbb;
+  --redText: #ba7a75;
+
   --white: #f9fdfd;
   --off-white: #f5f7f7;
   --black: #010712;
@@ -15,9 +20,9 @@
   --shadow: rgba(36, 38, 41, 0.5);
   --shadow2: rgba(202, 207, 207, 0.8);
   --s1: #eff1f1; /*s for shade*/
-  --s2: #cacfcf;
+  --s2: #a5a8a8;
   --s3: #717272;
-  --s4: #323636;
+  --s4: #c8cbcb;
 
   --font1: 3em;
   --font2: 2.5em;
@@ -44,6 +49,7 @@
   margin: 0;
   font-family: 'Roboto', sans-serif;
 	user-select: none;
+  font-weight: 300;
 	-moz-user-select: none;
   transition-duration: var(--tran);
   -o-transition-duration: var(--tran);

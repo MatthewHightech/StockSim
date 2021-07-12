@@ -2,48 +2,58 @@
 
 .navTop {
   z-index: 2;
-  background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
+  //background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
+  background-color: var(--s1);
   height: calc(var(--unit1) + var(--padding1));
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 0 var(--padding1) var(--shadow);
+  //box-shadow: 0 0 var(--padding1) var(--shadow2);
+  box-shadow: 0 calc(var(--padding1) / 4) var(--padding1) var(--shadow2);
+}
+.topGradient {
+  position: fixed;
+  z-index: 3;
+  top: calc(var(--unit1) + var(--padding1));
+  left: 0;
+  height: calc(var(--padding1) * 0.2);
+  width: 100%;
+  //background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
+  background-color: var(--s2);
 }
 
 .navTop .navElement {
   background-color: rgba(0, 0, 0, 0);
-  color: var(--white);
-  font-weight: 700;
+  //color: var(--white);
+  font-weight: 400;
   height: var(--unit1);
   line-height: var(--unit1);
   padding: calc(var(--padding1) / 2) calc(var(--padding1) * 2) calc(var(--padding1) / 2) calc(var(--padding1) * 2);
   font-size: var(--font4);
 }
-
-.navElement.left {
+.navTop .navElement.left {
   float: left;
 }
-.navElement.center {
+.navTop .navElement.center {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
 }
-.navElement.right {
+.navTop .navElement.right {
   float: right;
 }
 
 .navSide {
-  z-index: 1;
+  z-index: 2;
+  position: fixed;
   background-color: var(--s1);
-  height: 100%;
+  height: calc(100% - var(--unit1) - var(--padding1));
   width: var(--unit2);
-  padding-top: calc(var(--unit1) + var(--padding1));
-  top: 0;
+  top: calc(var(--unit1) + var(--padding1));
   left: 0;
-  box-shadow: 0 calc(var(--padding1) / 2) var(--padding1) var(--shadow2);
+  box-shadow: 0 calc(var(--padding1) * 0.8) var(--padding1) var(--shadow2);
 }
-
 
 .navSide .navElement {
   background-color: var(--s1);
@@ -53,23 +63,23 @@
   font-size: var(--font4);
 }
 .navSide .navElement:first-child {
-  padding-top: calc(var(--padding1) * 1);
+  //padding-top: calc(var(--padding1) * 1);
 }
-.navSide .navElement:hover {
+.navSide .navElement:not(.active):hover {
   cursor: pointer;
 }
 .navSide .navElement:not(.noHover):hover {
   background-color: var(--white);
 }
 .navSide .navElement:hover .expander {
-  top: calc(var(--unit1) * 3 + var(--padding1) * 3.8 + 0.05em);
+  top: calc(var(--unit1) * 2 + var(--padding1) * 2.8);
   cursor: pointer;
 }
 .navSide .active {
-  border-left: calc(var(--padding1) * 0.6) solid var(--c1m);
+  border-left: calc(var(--padding1) * 0.6) solid var(--s3);
   padding-left: calc(var(--padding1) * 3);
-  background: linear-gradient(90deg, var(--c1l) -1%, var(--white) 4%);
-  /*width: calc(100% - var(--padding1) * 3.6 + var(--margin) / 2);*/
+  background: linear-gradient(90deg, var(--shadow2) -1%, var(--white) 4%);
+  //width: calc(100% - var(--padding1) * 3.6 + var(--margin) / 2);
 }
 .navSide .smallNavElement.active {
   padding-left: calc(var(--padding1) * 4);
@@ -98,8 +108,8 @@
   text-align: center;
   font-size: var(--font4);
   left: calc(var(--unit2) - 1.3em);
-  color: var(--c1m);
-  top: calc(var(--unit1) * 3 + var(--padding1) * 3 + 0.05em);
+  color: var(--s3);
+  top: calc(var(--unit1) * 2 + var(--padding1) * 2.2);
 }
 
 #Holder {
