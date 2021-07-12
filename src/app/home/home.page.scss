@@ -1,12 +1,14 @@
 
 
 .navTop {
+  z-index: 2;
   background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
   height: calc(var(--unit1) + var(--padding1));
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  box-shadow: 0 0 var(--padding1) var(--shadow);
 }
 
 .navTop .navElement {
@@ -32,21 +34,26 @@
 }
 
 .navSide {
+  z-index: 1;
   background-color: var(--s1);
   height: 100%;
   width: var(--unit2);
   padding-top: calc(var(--unit1) + var(--padding1));
   top: 0;
   left: 0;
+  box-shadow: 0 calc(var(--padding1) / 2) var(--padding1) var(--shadow2);
 }
 
+
 .navSide .navElement {
-  display: block;
   background-color: var(--s1);
   height: var(--unit1);
   line-height: var(--unit1);
   padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);
   font-size: var(--font4);
+}
+.navSide .navElement:first-child {
+  padding-top: calc(var(--padding1) * 1);
 }
 .navSide .navElement:hover {
   cursor: pointer;
@@ -61,12 +68,12 @@
 .navSide .active {
   border-left: calc(var(--padding1) * 0.6) solid var(--c1m);
   padding-left: calc(var(--padding1) * 3);
-  background: linear-gradient(90deg, var(--c1l) 0%, var(--white) 4%);
+  background: linear-gradient(90deg, var(--c1l) -1%, var(--white) 4%);
+  /*width: calc(100% - var(--padding1) * 3.6 + var(--margin) / 2);*/
 }
 .navSide .smallNavElement.active {
   padding-left: calc(var(--padding1) * 4);
 }
-
 
 .smallNavElement{
   background-color: var(--s1);
@@ -80,14 +87,10 @@
   cursor: pointer;
 }
 
-ul {
-  list-style-type: none;
-}
-
 .wrapper.bottom {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: var(--unit2);
 }
 
 .expander {

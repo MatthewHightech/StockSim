@@ -6,34 +6,41 @@ body {
 
 .container {
   border-radius: var(--padding1);
-  margin: var(--padding1) 0 0 var(--padding1);
+  margin: var(--margin) 0 0 var(--margin);
   background-color: var(--s1);
-  padding: calc(var(--padding1) * 2);
+  padding: var(--margin);
+  box-shadow: 0 calc(var(--padding1) / 2) var(--padding1) var(--shadow2);
 }
 .container.main {
   float: left;
-  width: calc(70% - var(--padding1) * 8);
-  height: calc(60% - var(--padding1) * 7);
+  width: calc(70% - var(--margin) * 4);
+  height: calc(70% - var(--margin) * 7);
 }
 .container.right {
   float: left;
-  width: calc(30% - var(--padding1) * 3);
-  height: calc(60% - var(--padding1) * 7);
+  width: calc(30% - var(--margin) * 3);
+  height: calc(70% - var(--margin) * 7);
 }
-.container.bottom {
-  position: absolute;
-  bottom: var(--padding1);
-  width: calc(100% - var(--padding1) * 6);
-  height: calc(40% - var(--padding1) * 4);
+// .container.bottom {
+//   position: absolute;
+//   bottom: var(--margin);
+//   width: calc(100% - var(--margin) * 4);
+//   height: 30%;
+// }
+.container.transaction {
+  float: left;
+  width: 20%;
+  height: calc(30% + var(--margin) * 2);
+  line-height: 1.5em;
 }
 
 p.title {
   font-size: var(--font4);
+  line-height: 2em;
 }
 
 p:not(.title) {
   margin-top: calc(var(--padding1) * 2);
-  line-height: 1.5em;
 }
 
 .underline {
