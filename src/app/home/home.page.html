@@ -3,12 +3,12 @@
   <div class="navElement center">News</div>
   <div class="navElement right"><span style="font-weight: 300;">Budget:</span> $2,200</div>
 </nav>
+<!-- <div class="topGradient"></div> -->
 
 <nav class="navSide">
   <div class="navElement">Portfolio</div>
   <div class="navElement active">News</div>
-  <div class="navElement noHover">Companys<div class="expander"><span class="material-icons">expand_more</span></div></div>
-
+  <div class="navElement noHover">Companies<div class="expander"><span class="material-icons">expand_more</span></div></div>
   <div class="wrapper dropDown">
     <div class="smallNavElement">Company 1</div>
     <div class="smallNavElement">Company 2</div>
@@ -24,9 +24,8 @@
   </div>
 </nav>
 
-<content id="Holder">
+<div id="Holder">
   <app-portfolio></app-portfolio>
-</content>
-
+</div>
 
 <ion-button style="position: absolute; left: 5000px; top: 500px;" (click)="authService.logout()">Temp Logout (absolute positioning :))</ion-button>
