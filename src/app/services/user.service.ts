@@ -25,7 +25,6 @@ export class UserService {
   // initiation of data
 
   async initStudent() {
-    console.log("Student before: ", this.student)
     const userID = (await this.auth.currentUser).uid;
 
     this.student = await this.firestore.collection('students').doc<student>(userID)
@@ -68,14 +67,16 @@ export class UserService {
 
   async initClassroom() {
     if (this.classCode != undefined) {
-      // this.classroom = await this.firestore.collection('classrooms').doc<classroom>(this.classCode.toString())
-      // .get()
-      // .toPromise()
-      // .then(async res => {
-      //   return {
-      //     classStartDate: res.data().classStartDate
-      //   }
-      // })
+      this.classroom = await this.firestore.collection('classrooms').doc<classroom>(this.classCode.toString())
+      .get()
+      .toPromise()
+      .then(async res => {
+        return {
+          classStartDate: res.data().classStartDate,
+          className: await this.getUsername('classrooms', this.classCode),
+          classCode: this.classCode
+        }
+      })
     } else {
       console.log("Error, classcode undefined")
     }
