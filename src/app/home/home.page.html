@@ -20,13 +20,11 @@
   </div>
   <div class="wrapper bottom">
     <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Settings</div>
-    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Log Out</div>
+    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);" (click)="authService.logout()">Log Out</div>
   </div>
 </nav>
 
+<!-- Notice: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/content  -->
 <content id="Holder">
   <app-portfolio></app-portfolio>
 </content>
-
-
-<ion-button style="position: absolute; left: 5000px; top: 500px;" (click)="authService.logout()">Temp Logout (absolute positioning :))</ion-button>

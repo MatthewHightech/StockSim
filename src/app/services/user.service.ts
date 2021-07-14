@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
+import { classroom } from '../models/classroom.model';
 import { student } from '../models/student.model';
 import { teacher } from '../models/teacher.model';
 
@@ -11,15 +11,21 @@ import { teacher } from '../models/teacher.model';
 export class UserService {
 
   constructor(
-    private router: Router,
     private firestore: AngularFirestore,
     private auth: AngularFireAuth
   ) {}
 
   student: student;
   teacher: teacher;
+  classroom: classroom;
+
+  classCode: number;
+  day: number;
+
+  // initiation of data
 
   async initStudent() {
+    console.log("Student before: ", this.student)
     const userID = (await this.auth.currentUser).uid;
 
     this.student = await this.firestore.collection('students').doc<student>(userID)
@@ -38,7 +44,7 @@ export class UserService {
       console.log("Connot get Student Data: ", e);
       return null;
     });
-
+    this.classCode = this.student.classCode
     console.log("Student Data: ", this.student);
   }
 
@@ -54,8 +60,32 @@ export class UserService {
         classCode: res.data().classCode
       }
     })
-
+    this.classCode = this.teacher.classCode
     console.log("Teacher Data: ", this.teacher);
+  }
+
+  // classroom
+
+  async initClassroom() {
+    if (this.classCode != undefined) {
+      // this.classroom = await this.firestore.collection('classrooms').doc<classroom>(this.classCode.toString())
+      // .get()
+      // .toPromise()
+      // .then(async res => {
+      //   return {
+      //     classStartDate: res.data().classStartDate
+      //   }
+      // })
+    } else {
+      console.log("Error, classcode undefined")
+    }
+    console.log("Classroom Data: ", this.classroom);
+  }
+
+  // time and day
+
+  setDay() {
+
   }
 
   // helper functions
@@ -91,12 +121,22 @@ export class UserService {
     }).catch(e => {
       console.log("Cannot find user: ", e);
       return "Cannot get Username";
-    })
+    });
   }
 
-  clear() {
+  clearData() {
 
-    
+  }
+
+  async resetUser() {
+    const userID = (await this.auth.currentUser).uid;
+    if (this.student != undefined) {
+      this.firestore.collection('students').doc(userID).set({
+        budget: 100000,
+        theme: 'default',
+        transactions: [],
+      });
+    }
   }
 
 }

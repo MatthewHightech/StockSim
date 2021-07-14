@@ -40,7 +40,7 @@ export class AppComponent {
         // load student data
       } else {
         console.log("Clearning data...")
-        this.userService.clear()
+        this.userService.clearData()
       }
     }
 }
