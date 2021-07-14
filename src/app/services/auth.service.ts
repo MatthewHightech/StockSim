@@ -85,8 +85,8 @@ export class AuthService {
       });
 
       await this.firestore.collection('classrooms').doc(newClassCode.toString()).collection('public').doc('info').set({
-        className,
-        classCode: newClassCode,
+        username: className,
+        classCode: newClassCode
       }).then(res => {
         console.log("res ", res)
       })
