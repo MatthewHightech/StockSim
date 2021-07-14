@@ -11,7 +11,11 @@ export class PortfolioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    /*const chart = <HTMLCanvasElement>document.getElementById('chart')
+    const myChart = new Chart(
+      chart,
+      this.config
+    );*/
   }
 
   labels = [

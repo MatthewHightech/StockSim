@@ -6,39 +6,118 @@ body {
 
 .container {
   border-radius: var(--padding1);
-  margin: var(--padding1) 0 0 var(--padding1);
   background-color: var(--s1);
-  padding: calc(var(--padding1) * 2);
+  padding: var(--margin);
+  box-shadow: 0 calc(var(--padding1) / 2) var(--padding1) var(--shadow2);
 }
 .container.main {
-  float: left;
-  width: calc(70% - var(--padding1) * 8);
-  height: calc(60% - var(--padding1) * 7);
+  position: absolute;
+  top: var(--margin);
+  left: var(--margin);
+  width: calc(100% - var(--margin) * 5 - var(--unit2) * 1.5);
+  height: calc(70% - var(--margin) * 7);
 }
-.container.right {
-  float: left;
-  width: calc(30% - var(--padding1) * 3);
-  height: calc(60% - var(--padding1) * 7);
-}
+// .container.right {
+//   float: left;
+//   width: calc(30% - var(--margin) * 3);
+//   height: calc(70% - var(--margin) * 7);
+// }
 .container.bottom {
   position: absolute;
-  bottom: var(--padding1);
-  width: calc(100% - var(--padding1) * 6);
-  height: calc(40% - var(--padding1) * 4);
+  bottom: var(--margin);
+  left: var(--margin);
+  width: calc(100% - var(--margin) * 5 - var(--unit2) * 1.5);
+  height: 30%;
+}
+
+.history {
+  margin: var(--margin) 0 0 var(--margin);
+  //background-color: white;
+  position: absolute;
+  padding: 0;
+  right: 0;
+  width: calc(var(--unit2) * 1.5 + var(--margin));
+  height: calc(100% - var(--margin) * 2);
+}
+.transactionScroller {
+  width: calc(100% - var(--margin) / 3);
+  height: calc(100% - 3em - var(--padding1) * 1.6);
+  margin-top: calc(var(--padding1) * 1.6);
+  margin-right: calc(var(--margin) / 3);
+  overflow: auto;
+  //border-radius: var(--padding1);
+}
+
+::-webkit-scrollbar {
+  width: calc(var(--margin) / 3);
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--s4);
+  border-radius: calc(var(--margin) / 6);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--s2);
+  cursor: pointer;
+}
+
+.container.transaction {
+  float: left;
+  margin-bottom: var(--margin);
+  width: calc(100% - var(--padding1) * 3 - var(--margin) / 3);
+  padding: calc(var(--padding1) * 1.5);
+  line-height: 1.5em;
+}
+.container.transaction:last-child {
+  margin-bottom: var(--padding1);
+}
+.container.transaction.buy {
+  background-color: var(--red);
+}
+.container.transaction.sell {
+  background-color: var(--green);
+}
+.transaction p {
+  margin-top: 0;
+}
+.transaction p.main,p.secondary {
+  text-align: center;
+}
+.transaction p.tertiary {
+  margin-top: 0.25em;
+}
+.transaction:not(.sell) p.tertiary {
+  color: var(--redText);
+}
+.transaction.sell p.tertiary {
+  color: var(--greenText);
+}
+.transaction p.tertiary.right {
+  text-align: right;
+  margin-top: -1.5em;
 }
 
 p.title {
   font-size: var(--font4);
+  line-height: 2em;
 }
 
 p:not(.title) {
   margin-top: calc(var(--padding1) * 2);
-  line-height: 1.5em;
 }
 
 .underline {
   float: left;
-  background: linear-gradient(90deg, var(--c1m) 0%, var(--c3m) 100%);
+  background-color: var(--s3);
+  /*background: linear-gradient(90deg, var(--c1m) 0%, var(--c3m) 100%);*/
   width: calc(var(--unit1) * 2);
   height: calc(var(--padding1) * 0.6);
+}
+
+#MainGraph {
+  width: 100%;
+  height: calc(100% - 3em);
+  background-color: var(--white);
 }
