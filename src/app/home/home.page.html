@@ -1,31 +1,16 @@
-<nav class="navTop">
-  <div class="navElement left">mattDawg92</div>
-  <div class="navElement center">News</div>
-  <div class="navElement right"><span style="font-weight: 300;">Budget:</span> $2,200</div>
-</nav>
-<!-- <div class="topGradient"></div> -->
+<body>
+  <div id="sidebar">
+    <div id="info">
+      <p id="name" class="text">Matt_Smith</p>
+      <p id="class" class="text">My Classroom</p>
+      <ion-icon id="settings" name="settings-outline"></ion-icon>
+      <ion-icon id="logout" name="log-out-outline"></ion-icon>
+    </div>
+    <div id="nav">
 
-<nav class="navSide">
-  <div class="navElement">Portfolio</div>
-  <div class="navElement active">News</div>
-  <div class="navElement noHover">Companies<div class="expander"><span class="material-icons">expand_more</span></div></div>
-  <div class="wrapper dropDown">
-    <div class="smallNavElement">Company 1</div>
-    <div class="smallNavElement">Company 2</div>
-    <div class="smallNavElement">Company 3</div>
-    <div class="smallNavElement">Company 4</div>
-    <div class="smallNavElement">Company 5</div>
-    <div class="smallNavElement">Company 6</div>
-    <div class="smallNavElement">Company 7</div>
+    </div>
   </div>
-  <div class="wrapper bottom">
-    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Settings</div>
-    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Log Out</div>
+  <div id="component">
+    <app-portfolio></app-portfolio>
   </div>
-</nav>
-
-<div id="Holder">
-  <app-portfolio></app-portfolio>
-</div>
-
-<ion-button style="position: absolute; left: 5000px; top: 500px;" (click)="authService.logout()">Temp Logout (absolute positioning :))</ion-button>
+</body>
