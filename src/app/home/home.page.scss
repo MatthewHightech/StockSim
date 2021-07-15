@@ -79,6 +79,7 @@ p {
 // menu
 
 #menu {
+  position: relative;
   margin-top: 120px;
   width: 250px;
   height: calc(100% - 120px);
@@ -93,52 +94,17 @@ p {
   flex-wrap: wrap;
 }
 
+#navButtons {
+  box-shadow: 0px 4px 4px rgba(147, 147, 147, 0.262);
+}
+
 
 .navText {
   position: relative;
   font-size: 25px;
   margin-top: 10px;
-  margin-left: 4px;
-  margin-right: 2px;
+  margin-left: 8px;
 }
-
-.button {
-  font-weight: 500;
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 10px;
-  color: rgb(164, 164, 164);
-  font-size: 22px;
-  transition: all, 1s;
-}
-
-.button ion-icon {
-  color: rgb(164, 164, 164);
-  font-size: 30px;
-  margin: 0px 10px;
-}
-
-.button:hover {
-  cursor: pointer;
-
-}
-
-.button:hover ion-icon {
-
-}
-
-.button:focus {
-  color: rgb(78,140,70);
-  background: rgb(78,140,70);
-  background: linear-gradient(90deg, rgba(78, 140, 70, 0.393) 0%, rgba(255, 255, 255, 0.358) 100%);
-  border-left: solid 5px rgb(78,140,70);
-}
-
-.button:focus ion-icon {
-  color: rgb(78,140,70);
-}
-
 
 // menu icons
 
@@ -150,6 +116,77 @@ p {
 
 .r {
   transform: rotateY(180deg)
+}
+
+// nav buttons
+
+.button {
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  transition: all, 1s;
+  background: linear-gradient(90deg,rgba(0,0,0,0), rgb(252, 252, 252));
+  background-color: rgb(252, 252, 252);
+  border-left: solid 5px rgba(72, 179, 58, 0);
+}
+
+.button p {
+  display: inline;
+  color: rgb(164, 164, 164);
+  font-size: 22px;
+  transition: all, 1s;
+}
+
+.button ion-icon {
+  color: rgb(164, 164, 164);
+  font-size: 30px;
+  margin: -5px 20px;
+}
+
+.button:hover {
+  cursor: pointer;
+
+}
+
+.button:hover ion-icon {
+  transform: rotate(10deg);
+}
+
+.button:focus {
+  background-color: rgba(162, 162, 162, 0.29);
+  border-left: solid 5px rgb(24, 24, 24);
+}
+
+.button:focus p {
+  color: rgb(24, 24, 24);
+}
+
+.button:focus ion-icon {
+  color: rgb(24, 24, 24);
+}
+
+// stats
+
+#stats {
+  background-color: rgb(252, 252, 252);
+  box-shadow: 0px -4px 4px rgba(147, 147, 147, 0.262);
+}
+
+
+
+#feedback {
+  text-align: center;
+}
+
+#menu a {
+  color: rgb(24, 24, 24);
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "main";
+  text-decoration: underline;
+  width: 250px;
 }
 
 #component {
