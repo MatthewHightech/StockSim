@@ -1,13 +1,25 @@
+ion-icon {
+  color: rgb(24, 24, 24);
+  transition: all, 1s;
+}
+
+p {
+  font-family: 'main';
+  color: rgb(24, 24, 24);
+}
+
+
 #sidebar {
   position: fixed;
   width: 250px;
   height: 100%;
+  background-color: rgb(245, 242, 242);
   box-shadow: 5px 0 5px -2px rgba(147, 147, 147, 0.262);
 }
 
 #info {
   background-color: rgb(245, 242, 242);
-  height: 130px;
+  height: 110px;
   width: 250px;
   position: fixed;
   top: 0px;
@@ -16,10 +28,10 @@
 
 #info p {
   float: right;
+  margin: 10px;
 }
 
 #name {
-  color: rgb(24, 24, 24);
   font-size: 24px;
   font-weight: 600;
 }
@@ -28,20 +40,18 @@
   color: rgb(84, 84, 84);
   font-size: 16px;
   font-weight: 400;
-  margin-top: -5px;
+  margin-top: -10px !important;
 }
 
 // icons
 
-ion-icon {
+#info ion-icon {
   position: absolute;
-  font-size: 30px;
-  color: rgb(24, 24, 24);
-  bottom: 20px;
-  transition: all, 1s;
+  bottom: 10px;
 }
 
 #settings {
+  font-size: 30px;
   right: 60px;
 }
 
@@ -51,6 +61,7 @@ ion-icon {
 }
 
 #logout {
+  font-size: 30px;
   right: 15px;
 }
 
@@ -59,22 +70,87 @@ ion-icon {
   cursor: pointer;
 }
 
-// nav
+#avatar {
+  font-size: 80px;
+  top: 10px;
+  left: 15px;
+}
+
+// menu
+
+#menu {
+  margin-top: 120px;
+  width: 250px;
+  height: calc(100% - 120px);
+  background-color: rgb(252, 252, 252);
+  box-shadow: 0px -4px 4px rgba(147, 147, 147, 0.262);
+}
 
 #nav {
-  height: calc(100%-130px);
-  background-color: rgb(252, 252, 252);
-  box-shadow: 5px 2px 5px 0 rgba(147, 147, 147, 0.262);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
-.text {
-  margin: 0px;
-  margin: 10px;
-  font-family: 'main';
+.navText {
+  position: relative;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 2px;
+}
+
+.button {
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  color: rgb(164, 164, 164);
+  font-size: 22px;
+  transition: all, 1s;
+}
+
+.button ion-icon {
+  color: rgb(164, 164, 164);
+  font-size: 30px;
+  margin: 0px 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+
+}
+
+.button:hover ion-icon {
+
+}
+
+.button:focus {
+  color: rgb(78,140,70);
+  background: rgb(78,140,70);
+  background: linear-gradient(90deg, rgba(78, 140, 70, 0.393) 0%, rgba(255, 255, 255, 0.358) 100%);
+  border-left: solid 5px rgb(78,140,70);
+}
+
+.button:focus ion-icon {
+  color: rgb(78,140,70);
 }
 
 
+// menu icons
+
+.arrow {
+  position: relative;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.r {
+  transform: rotateY(180deg)
+}
 
 #component {
   width: calc(100%-250px);
