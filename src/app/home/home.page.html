@@ -5,7 +5,7 @@
       <p id="class" class="text">My Classroom</p>
       <ion-icon id="avatar" name="person-circle-outline"></ion-icon>
       <ion-icon id="settings" name="settings-outline"></ion-icon>
-      <ion-icon id="logout" name="log-out-outline"></ion-icon>
+      <ion-icon id="logout" name="log-out-outline" (click)="authService.logout()"></ion-icon>
     </div>
     <div id="menu">
       <div id="nav">
@@ -20,9 +20,24 @@
           <ion-icon name="newspaper-outline"></ion-icon>
           <p>News</p>
         </div>
-        <div class="button" tabindex="1">
+        <div class="button" tabindex="1" (click)="displayCompanies()">
           <ion-icon name="stats-chart-outline"></ion-icon>
           <p>Market</p>
+          <ion-icon id="marketArrow" slot="end" name="chevron-down-outline"></ion-icon>
+        </div>
+        <div id="marketContainer">
+          <div class="marketButton button" tabindex="1">
+            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+            <p>Company #1</p>
+          </div>
+          <div class="marketButton button" tabindex="1">
+            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+            <p>Company #2</p>
+          </div>
+          <div class="marketButton button" tabindex="1">
+            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+            <p>Company #3</p>
+          </div>
         </div>
       </div>
 
@@ -31,12 +46,23 @@
           <ion-icon class="arrow l" name="trending-up-outline"></ion-icon><p class="text navText">Stats</p>
         </div>
         <div id="statsInfo">
-          
+          <ion-item>
+            <ion-label>Net Worth: </ion-label>
+            <ion-note slot="end">$124,330</ion-note>
+            <ion-icon id="up" slot="end" name="caret-up-outline"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-label>Budget: </ion-label>
+            <ion-note slot="end">$80,034</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Class Rank: </ion-label>
+            <ion-note id="rank" slot="end">1st</ion-note>
+            <ion-icon id="medal" slot="end" name="medal-outline"></ion-icon>
+          </ion-item>
         </div>
       </div>
-      <div id="feedback">
         <a>Give us feedback!</a>
-      </div>
     </div>
   </div>
   <div id="component">

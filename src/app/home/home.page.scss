@@ -85,6 +85,7 @@ p {
   height: calc(100% - 120px);
   background-color: rgb(252, 252, 252);
   box-shadow: 0px -4px 4px rgba(147, 147, 147, 0.262);
+  overflow: auto;
 }
 
 #nav {
@@ -151,7 +152,7 @@ p {
 }
 
 .button:hover ion-icon {
-  transform: rotate(10deg);
+  transform: rotate(20deg);
 }
 
 .button:focus {
@@ -167,6 +168,42 @@ p {
   color: rgb(24, 24, 24);
 }
 
+// market buttons
+
+#marketArrow {
+  margin-left: 15px !important;
+  transform: rotate(0deg);
+}
+
+.button:hover #marketArrow {
+  transform: translateY(10px);
+}
+
+#marketContainer {
+  transition: all, 1.5s;
+  display: none;
+}
+
+.marketButton {
+  padding: 5px 0px;
+  background: linear-gradient(90deg, rgb(252, 252, 252), rgba(0,0,0,0));
+  border-left: none;
+  border-right: solid 5px rgba(72, 179, 58, 0);
+  padding-left: 100px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.marketButton p {
+  font-size: 18px;
+  margin: 12px;
+}
+
+.marketButton:focus {
+  border-left: none;
+  border-right: solid 5px rgb(24, 24, 24);
+}
+
 // stats
 
 #stats {
@@ -174,19 +211,52 @@ p {
   box-shadow: 0px -4px 4px rgba(147, 147, 147, 0.262);
 }
 
-
-
-#feedback {
-  text-align: center;
-}
-
 #menu a {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
   color: rgb(24, 24, 24);
   font-size: 16px;
   font-weight: 300;
   font-family: "main";
   text-decoration: underline;
-  width: 250px;
+}
+
+#menu ion-item {
+  --background: rgb(252, 252, 252);
+  padding: 0;
+}
+
+.item-native {
+  padding: 0 !important;
+}
+
+#menu ion-note {
+  font-size: 16px;
+  margin: 0px;
+  padding-top: 15px;
+  padding-right: 0px;
+}
+
+#menu ion-label {
+  font-family: "main";
+  color: rgb(24, 24, 24);
+  font-size: 14px;
+}
+
+// stats icons
+
+#menu ion-icon {
+  margin-left: 2px;
+}
+
+#up {
+  color: green;
+}
+
+#medal {
+  font-size: 16px;
+  color: #D4af37;
 }
 
 #component {
