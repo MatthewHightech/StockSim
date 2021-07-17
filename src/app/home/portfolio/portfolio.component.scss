@@ -1,1 +1,33 @@
+#portfolio {
+  position: relative;
+  height: 100%;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  overflow: auto;
+}
+
+ion-col {
+  //border: solid blue 3px;
+  padding: 20px;
+}
+
+.innerCol {
+  background-color: rgb(252, 252, 252);
+  height: 100%;
+  border-radius: 3px;
+  box-shadow: 2px 3px 12px -3px rgba(56,56,56,0.6);
+}
+
+
+#graph {
+  height: 60vh;
+}
+
+#stats {
+  height: 60vh;
+}
+
+#transactionTable {
+  height: 38vh;
+}
 

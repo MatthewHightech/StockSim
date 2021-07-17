@@ -172,16 +172,13 @@ p {
 
 #marketArrow {
   margin-left: 15px !important;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }
 
-.button:hover #marketArrow {
-  transform: translateY(10px);
-}
 
 #marketContainer {
   transition: all, 1.5s;
-  display: none;
+  display: block;
 }
 
 .marketButton {

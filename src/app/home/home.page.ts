@@ -21,8 +21,8 @@ export class HomePage {
     displayCompanies() {
       const dropdown = document.getElementById("marketContainer");
       const arrow = document.getElementById("marketArrow");
-      dropdown.style.display = (dropdown.style.display == "block" ? "none" : "block")
-      arrow.style.transform = (arrow.style.transform == "rotate(180deg)" ? "rotate(0deg)" : "rotate(180deg)")
+      dropdown.style.display = (dropdown.style.display == "none" ? "block" : "none")
+      arrow.style.transform = (arrow.style.transform == "rotate(0deg)" ? "rotate(180deg)" : "rotate(0deg)")
 
     }
 

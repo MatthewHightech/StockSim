@@ -20,10 +20,10 @@
           <ion-icon name="newspaper-outline"></ion-icon>
           <p>News</p>
         </div>
-        <div class="button" tabindex="1" (click)="displayCompanies()">
+        <div class="button" tabindex="1">
           <ion-icon name="stats-chart-outline"></ion-icon>
           <p>Market</p>
-          <ion-icon id="marketArrow" slot="end" name="chevron-down-outline"></ion-icon>
+          <ion-icon id="marketArrow" slot="end" name="chevron-down-outline" (click)="displayCompanies()"></ion-icon>
         </div>
         <div id="marketContainer">
           <div class="marketButton button" tabindex="1">
