@@ -16,7 +16,8 @@ export class AuthPage implements OnInit {
   async tempSignUp(signUpType: string) {
 
     if (signUpType === "student") {
-      this.err = await this.authService.createStudentAccount('test student', '123456', 'student@test.test', '6246');
+
+      this.err = await this.authService.createStudentAccount('test student', '123456', 'student@test.test', '1488');
     } else {
       this.err = await this.authService.createTeacherAccount('test teacher 5', '123456', 'teacher5@test.test', 'My fifth Class');
     }
@@ -28,7 +29,7 @@ export class AuthPage implements OnInit {
 
   async tempLogin(userType: string) {
     if (userType == 'student') {
-      this.err = await this.authService.login("student5@test.test", "123456");
+      this.err = await this.authService.login("student@test.test", "123456");
     } else {
       this.err = await this.authService.login("teacher5@test.test", "123456");
     }

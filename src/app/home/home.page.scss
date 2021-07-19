@@ -1,122 +1,263 @@
-
-
-.navTop {
-  z-index: 2;
-  //background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
-  background-color: var(--s1);
-  height: calc(var(--unit1) + var(--padding1));
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  //box-shadow: 0 0 var(--padding1) var(--shadow2);
-  box-shadow: 0 calc(var(--padding1) / 4) var(--padding1) var(--shadow2);
-}
-.topGradient {
-  position: fixed;
-  z-index: 3;
-  top: calc(var(--unit1) + var(--padding1));
-  left: 0;
-  height: calc(var(--padding1) * 0.2);
-  width: 100%;
-  //background: linear-gradient(90deg, var(--c1m) 0%, var(--c2m) 100%);
-  background-color: var(--s2);
+ion-icon {
+  color: rgb(24, 24, 24);
+  transition: all, 1s;
 }
 
-.navTop .navElement {
-  background-color: rgba(0, 0, 0, 0);
-  //color: var(--white);
-  font-weight: 400;
-  height: var(--unit1);
-  line-height: var(--unit1);
-  padding: calc(var(--padding1) / 2) calc(var(--padding1) * 2) calc(var(--padding1) / 2) calc(var(--padding1) * 2);
-  font-size: var(--font4);
+p {
+  font-family: 'main';
+  color: rgb(24, 24, 24);
 }
-.navTop .navElement.left {
-  float: left;
-}
-.navTop .navElement.center {
+
+
+#sidebar {
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 250px;
+  height: 100%;
+  background-color: rgb(245, 242, 242);
+  box-shadow: 5px 0 5px -2px rgba(147, 147, 147, 0.262);
 }
-.navTop .navElement.right {
+
+#info {
+  background-color: rgb(245, 242, 242);
+  height: 110px;
+  width: 250px;
+  position: fixed;
+  top: 0px;
+
+}
+
+#info p {
   float: right;
+  margin: 10px;
 }
 
-.navSide {
-  z-index: 2;
-  position: fixed;
-  background-color: var(--s1);
-  height: calc(100% - var(--unit1) - var(--padding1));
-  width: var(--unit2);
-  top: calc(var(--unit1) + var(--padding1));
-  left: 0;
-  box-shadow: 0 calc(var(--padding1) * 0.8) var(--padding1) var(--shadow2);
+#name {
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.navSide .navElement {
-  background-color: var(--s1);
-  height: var(--unit1);
-  line-height: var(--unit1);
-  padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);
-  font-size: var(--font4);
-}
-.navSide .navElement:first-child {
-  //padding-top: calc(var(--padding1) * 1);
-}
-.navSide .navElement:not(.active):hover {
-  cursor: pointer;
-}
-.navSide .navElement:not(.noHover):hover {
-  background-color: var(--white);
-}
-.navSide .navElement:hover .expander {
-  top: calc(var(--unit1) * 2 + var(--padding1) * 2.8);
-  cursor: pointer;
-}
-.navSide .active {
-  border-left: calc(var(--padding1) * 0.6) solid var(--s3);
-  padding-left: calc(var(--padding1) * 3);
-  background: linear-gradient(90deg, var(--shadow2) -1%, var(--white) 4%);
-  //width: calc(100% - var(--padding1) * 3.6 + var(--margin) / 2);
-}
-.navSide .smallNavElement.active {
-  padding-left: calc(var(--padding1) * 4);
+#class {
+  color: rgb(84, 84, 84);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: -10px !important;
 }
 
-.smallNavElement{
-  background-color: var(--s1);
-  font-size: var(--font5);
-  height: calc(var(--unit1) / 1.5);
-  line-height: calc(var(--unit1) / 1.5);
-  padding-left: calc(var(--padding1) * 4);
+// icons
+
+#info ion-icon {
+  position: absolute;
+  bottom: 10px;
 }
-.smallNavElement:hover {
-  background-color: var(--white);
+
+#settings {
+  font-size: 30px;
+  right: 60px;
+}
+
+#settings:hover {
+  transform: rotate(90deg);
   cursor: pointer;
 }
 
-.wrapper.bottom {
-  position: absolute;
-  bottom: 0;
-  width: var(--unit2);
+#logout {
+  font-size: 30px;
+  right: 15px;
 }
 
-.expander {
-  position: absolute;
-  text-align: center;
-  font-size: var(--font4);
-  left: calc(var(--unit2) - 1.3em);
-  color: var(--s3);
-  top: calc(var(--unit1) * 2 + var(--padding1) * 2.2);
+#logout:hover {
+  transform: translateX(5px);
+  cursor: pointer;
 }
 
-#Holder {
+#avatar {
+  font-size: 80px;
+  top: 10px;
+  left: 15px;
+}
+
+// menu
+
+#menu {
+  position: relative;
+  margin-top: 120px;
+  width: 250px;
+  height: calc(100% - 120px);
+  background-color: rgb(252, 252, 252);
+  box-shadow: 0px -4px 4px rgba(147, 147, 147, 0.262);
+  overflow: auto;
+}
+
+#nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#navButtons {
+  box-shadow: 0px 4px 4px rgba(147, 147, 147, 0.262);
+}
+
+
+.navText {
+  position: relative;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+// menu icons
+
+.arrow {
+  position: relative;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.r {
+  transform: rotateY(180deg)
+}
+
+// nav buttons
+
+.button {
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  transition: all, 1s;
+  background: linear-gradient(90deg,rgba(0,0,0,0), rgb(252, 252, 252));
+  background-color: rgb(252, 252, 252);
+  border-left: solid 5px rgba(72, 179, 58, 0);
+}
+
+.button p {
+  display: inline;
+  color: rgb(164, 164, 164);
+  font-size: 22px;
+  transition: all, 1s;
+}
+
+.button ion-icon {
+  color: rgb(164, 164, 164);
+  font-size: 30px;
+  margin: -5px 20px;
+}
+
+.button:hover {
+  cursor: pointer;
+
+}
+
+.button:hover ion-icon {
+  transform: rotate(20deg);
+}
+
+.button:focus {
+  background-color: rgba(162, 162, 162, 0.29);
+  border-left: solid 5px rgb(24, 24, 24);
+}
+
+.button:focus p {
+  color: rgb(24, 24, 24);
+}
+
+.button:focus ion-icon {
+  color: rgb(24, 24, 24);
+}
+
+// market buttons
+
+#marketArrow {
+  margin-left: 15px !important;
+  transform: rotate(180deg);
+}
+
+
+#marketContainer {
+  transition: all, 1.5s;
+  display: block;
+}
+
+.marketButton {
+  padding: 5px 0px;
+  background: linear-gradient(90deg, rgb(252, 252, 252), rgba(0,0,0,0));
+  border-left: none;
+  border-right: solid 5px rgba(72, 179, 58, 0);
+  padding-left: 100px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.marketButton p {
+  font-size: 18px;
+  margin: 12px;
+}
+
+.marketButton:focus {
+  border-left: none;
+  border-right: solid 5px rgb(24, 24, 24);
+}
+
+// stats
+
+#stats {
+  background-color: rgb(252, 252, 252);
+  box-shadow: 0px -4px 4px rgba(147, 147, 147, 0.262);
+}
+
+#menu a {
   position: absolute;
-  left: var(--unit2);
-  top: calc(var(--unit1) + var(--padding1));
-  line-height: var(--unit1);
-  width: calc(100% - var(--unit2));
-  height: calc(100% - var(--unit1) - var(--padding1));
+  bottom: 20px;
+  left: 60px;
+  color: rgb(24, 24, 24);
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "main";
+  text-decoration: underline;
+}
+
+#menu ion-item {
+  --background: rgb(252, 252, 252);
+  padding: 0;
+}
+
+.item-native {
+  padding: 0 !important;
+}
+
+#menu ion-note {
+  font-size: 16px;
+  margin: 0px;
+  padding-top: 15px;
+  padding-right: 0px;
+}
+
+#menu ion-label {
+  font-family: "main";
+  color: rgb(24, 24, 24);
+  font-size: 14px;
+}
+
+// stats icons
+
+#menu ion-icon {
+  margin-left: 2px;
+}
+
+#up {
+  color: green;
+}
+
+#medal {
+  font-size: 16px;
+  color: #D4af37;
+}
+
+#component {
+  width: calc(100%-250px);
+  height: 100%;
+  background-color: rgb(238, 235, 235);
 }

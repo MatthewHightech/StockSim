@@ -1,81 +1,21 @@
 
 @import "~@ionic/angular/css/core.css";
 
-:root {
-  --c1m: rgb(22, 197, 217); /*Colour 1 Main*/
-  --c1l: rgb(184, 238, 245); /*Colour 1 light*/
-  --c2m: rgb(132, 22, 217); /*Colour 2 Main*/
-  --c3m: rgb(65, 85, 217); /*Colour 3 Main*/
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
 
-  --green: #c3f2bb;
-  --greenText: #7fba75;
-  --red: #f2bbbb;
-  --redText: #ba7a75;
+/* Optional CSS utils that can be commented out */
+// @import "~@ionic/angular/css/padding.css";
+// @import "~@ionic/angular/css/float-elements.css";
+// @import "~@ionic/angular/css/text-alignment.css";
+// @import "~@ionic/angular/css/text-transformation.css";
+// @import "~@ionic/angular/css/flex-utils.css";
 
-  --white: #f9fdfd;
-  --off-white: #f5f7f7;
-  --black: #010712;
-  --off-black: #19191a;
-  --blackh: #4d4f4f;
-  --shadow: rgba(36, 38, 41, 0.5);
-  --shadow2: rgba(202, 207, 207, 0.8);
-  --s1: #eff1f1; /*s for shade*/
-  --s2: #a5a8a8;
-  --s3: #717272;
-  --s4: #c8cbcb;
+@font-face {
+    font-family: 'main';    // ref name
+    src: url('./assets/fonts/main.ttf');
+  }
 
-  --font1: 3em;
-  --font2: 2.5em;
-  --font3: 2em;
-  --font4: 1.5em;
-  --font5: 1em;
-  --font6: 0.75em;
-
-  --unit1: 50px;
-  --unit2: 200px;
-
-  --padding1: 10px;
-  --padding2: 25px;
-  --margin: 20px;
-
-  --radius: 10px;
-  --border: 5px;
-  --line: 2px;
-
-  --tran: 0.3s;
-}
-
-* {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-	user-select: none;
-  font-weight: 300;
-	-moz-user-select: none;
-  transition-duration: var(--tran);
-  -o-transition-duration: var(--tran);
-  -moz-transition-duration: var(--tran);
-  -webkit-transition-duration: var(--tran);
-}
-
-button {
-  border: none;
-  color: var(--s1);
-}
-
-.hoverUnderlineText:hover {
-  text-decoration: underline;
-}
-
-h1 {
-  text-align: center;
-  font-size: var(--font2);
-  color: var(--off-black);
-}
-
-p {
-  line-height: 1.5em;
-}
-
-ul {
-  line-height: 1.5em;
-}

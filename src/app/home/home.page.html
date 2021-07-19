@@ -1,31 +1,72 @@
-<nav class="navTop">
-  <div class="navElement left">mattDawg92</div>
-  <div class="navElement center">News</div>
-  <div class="navElement right"><span style="font-weight: 300;">Budget:</span> $2,200</div>
-</nav>
-<!-- <div class="topGradient"></div> -->
+<body>
+  <div id="sidebar">
+    <div id="info">
+      <p id="name" class="text">Matt_Smith</p>
+      <p id="class" class="text">My Classroom</p>
+      <ion-icon id="avatar" name="person-circle-outline"></ion-icon>
+      <ion-icon id="settings" name="settings-outline"></ion-icon>
+      <ion-icon id="logout" name="log-out-outline" (click)="authService.logout()"></ion-icon>
+    </div>
+    <div id="menu">
+      <div id="nav">
+        <ion-icon class="arrow l" name="grid-outline"></ion-icon><p class="text navText">Menu</p>
+      </div>
+      <div id="navButtons">
+        <div class="button" tabindex="1">
+          <ion-icon name="albums-outline"></ion-icon>
+          <p>Portfolio</p>
+        </div>
+        <div class="button" tabindex="1">
+          <ion-icon name="newspaper-outline"></ion-icon>
+          <p>News</p>
+        </div>
+        <div class="button" tabindex="1">
+          <ion-icon name="stats-chart-outline"></ion-icon>
+          <p>Market</p>
+          <ion-icon id="marketArrow" slot="end" name="chevron-down-outline" (click)="displayCompanies()"></ion-icon>
+        </div>
+        <div id="marketContainer">
+          <div class="marketButton button" tabindex="1">
+            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+            <p>Company #1</p>
+          </div>
+          <div class="marketButton button" tabindex="1">
+            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+            <p>Company #2</p>
+          </div>
+          <div class="marketButton button" tabindex="1">
+            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+            <p>Company #3</p>
+          </div>
+        </div>
+      </div>
 
-<nav class="navSide">
-  <div class="navElement">Portfolio</div>
-  <div class="navElement active">News</div>
-  <div class="navElement noHover">Companies<div class="expander"><span class="material-icons">expand_more</span></div></div>
-  <div class="wrapper dropDown">
-    <div class="smallNavElement">Company 1</div>
-    <div class="smallNavElement">Company 2</div>
-    <div class="smallNavElement">Company 3</div>
-    <div class="smallNavElement">Company 4</div>
-    <div class="smallNavElement">Company 5</div>
-    <div class="smallNavElement">Company 6</div>
-    <div class="smallNavElement">Company 7</div>
+      <div id="stats">
+        <div id="nav">
+          <ion-icon class="arrow l" name="trending-up-outline"></ion-icon><p class="text navText">Stats</p>
+        </div>
+        <div id="statsInfo">
+          <ion-item>
+            <ion-label>Net Worth: </ion-label>
+            <ion-note slot="end">$124,330</ion-note>
+            <ion-icon id="up" slot="end" name="caret-up-outline"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-label>Budget: </ion-label>
+            <ion-note slot="end">$80,034</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Class Rank: </ion-label>
+            <ion-note id="rank" slot="end">1st</ion-note>
+            <ion-icon id="medal" slot="end" name="medal-outline"></ion-icon>
+          </ion-item>
+        </div>
+      </div>
+        <a>Give us feedback!</a>
+    </div>
   </div>
-  <div class="wrapper bottom">
-    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);">Settings</div>
-    <div class="smallNavElement" style="padding: calc(var(--padding1) / 2) 0 calc(var(--padding1) / 2) calc(var(--padding1) * 2);" (click)="authService.logout()">Log Out</div>
+  <div id="component">
+    <app-portfolio></app-portfolio>
   </div>
-</nav>
-
-
-<div id="Holder">
-  <app-portfolio></app-portfolio>
-</div>
+</body>
 
