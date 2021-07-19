@@ -30,17 +30,22 @@ export class AppComponent {
       const isStudent = await this.userService.isUserStudent()
       if (isStudent) {
         console.log("Loading student data...")
-        this.userService.initStudent();
-        this.companiesService.initCompanies();
-        this.newsService.initNews();
+        await this.userService.initStudent();
+        await this.companiesService.initCompanies();
+        await this.newsService.initNews();
       } else if (isStudent == false) {
         console.log("Loading Teacher data...")
-        this.userService.initTeacher();
+        await this.userService.initTeacher();
         // load class data
         // load student data
-      } else {
+      }
+
+      if (isStudent != null) {
+        console.log("Loading Class data...")
+        await this.userService.initClassroom();
+      }else {
         console.log("Clearning data...")
-        this.userService.clear()
+        this.userService.clearData()
       }
     }
 }
