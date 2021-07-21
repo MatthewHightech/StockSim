@@ -21,7 +21,7 @@ export class AppComponent {
     ) {
       router.events.subscribe(val => {
         if (val instanceof NavigationEnd) {
-          //this.loadData();
+          this.loadData();
         }
       })
     }
