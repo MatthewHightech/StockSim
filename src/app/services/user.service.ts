@@ -81,13 +81,13 @@ export class UserService {
       console.log("Error, classcode undefined")
     }
     console.log("Classroom Data: ", this.classroom);
-    this.day = this.getDaysBetween(this.classroom.classStartDate.getDate(), new Date(Date.now()).getDate(), this.classroom.classStartDate.getMonth(), this.classroom.classStartDate.getFullYear());
+    this.day = this.getDaysPassed(this.classroom.classStartDate.getDate(), new Date(Date.now()).getDate(), this.classroom.classStartDate.getMonth(), this.classroom.classStartDate.getFullYear());
     console.log(this.day)
   }
 
   // time and day
 
-  getDaysBetween(startDay, day, month, year) {
+  getDaysPassed(startDay, day, month, year) {
     let daysPassed
 
     if (startDay > day) {
