@@ -17,9 +17,9 @@ export class AuthPage implements OnInit {
 
     if (signUpType === "student") {
 
-      this.err = await this.authService.createStudentAccount('test student', '123456', 'student@test.test', '1488');
+      this.err = await this.authService.createStudentAccount('test student 2', '123456', 'student2@test.test', '6261');
     } else {
-      this.err = await this.authService.createTeacherAccount('test teacher 5', '123456', 'teacher5@test.test', 'My fifth Class');
+      this.err = await this.authService.createTeacherAccount('test teacher 6', '123456', 'teacher6@test.test', 'My sixth Class');
     }
     if (this.err != null) {
       console.log("Error: ", this.err)
