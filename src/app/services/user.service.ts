@@ -72,7 +72,7 @@ export class UserService {
       .toPromise()
       .then(async res => {
         return {
-          classStartDate: res.data().classStartDate,
+          classStartDate: res.data().classStartDate.toDate(),
           className: await this.getUsername('classrooms', this.classCode),
           classCode: this.classCode
         }
@@ -81,12 +81,32 @@ export class UserService {
       console.log("Error, classcode undefined")
     }
     console.log("Classroom Data: ", this.classroom);
+    this.day = this.getDaysPassed(this.classroom.classStartDate.getDate(), new Date(Date.now()).getDate(), this.classroom.classStartDate.getMonth(), this.classroom.classStartDate.getFullYear());
+    console.log(this.day)
   }
+
+  // write transactions
+
+  
+
 
   // time and day
 
-  setDay() {
+  getDaysPassed(startDayOfMonth, currentDayOfMonth, month, year) {
+    let daysPassed
+    console.log("Start day: ", startDayOfMonth)
+    console.log("Cur day: ", currentDayOfMonth)
 
+    if (startDayOfMonth > currentDayOfMonth) {
+      daysPassed = currentDayOfMonth + (this.getDaysInMonth(month, year) - startDayOfMonth);
+    } else {
+      daysPassed = currentDayOfMonth - startDayOfMonth;
+    }
+    return daysPassed+1
+  }
+
+  getDaysInMonth(month, year) {
+    return new Date(year, month+1, 0).getDate();
   }
 
   // helper functions

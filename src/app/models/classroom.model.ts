@@ -1,5 +1,6 @@
+
 export interface classroom {
-  classStartDate: Date
+  classStartDate: any | Date
   className: string
   classCode: number
 }

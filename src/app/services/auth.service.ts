@@ -76,7 +76,7 @@ export class AuthService {
       });
 
       await this.firestore.collection('classrooms').doc(newClassCode.toString()).set({
-        classStartDate: Date.now()
+          classStartDate: new Date(Date.now())
       }).then(res => {
         console.log("res ", res)
       })
