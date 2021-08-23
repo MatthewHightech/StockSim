@@ -18,6 +18,8 @@ export class HomePage {
     public companiesService: CompaniesService
     ) {}
 
+    component: string = "portfolio"
+
     displayCompanies() {
       const dropdown = document.getElementById("marketContainer");
       const arrow = document.getElementById("marketArrow");

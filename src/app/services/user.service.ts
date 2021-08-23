@@ -90,12 +90,11 @@ export class UserService {
   
 
 
+
   // time and day
 
   getDaysPassed(startDayOfMonth, currentDayOfMonth, month, year) {
     let daysPassed
-    console.log("Start day: ", startDayOfMonth)
-    console.log("Cur day: ", currentDayOfMonth)
 
     if (startDayOfMonth > currentDayOfMonth) {
       daysPassed = currentDayOfMonth + (this.getDaysInMonth(month, year) - startDayOfMonth);

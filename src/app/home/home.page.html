@@ -12,30 +12,27 @@
         <ion-icon class="arrow l" name="grid-outline"></ion-icon><p class="text navText">Menu</p>
       </div>
       <div id="navButtons">
-        <div class="button" tabindex="1">
+        <div class="button" tabindex="1" (click)="component = 'portfolio'">
           <ion-icon name="albums-outline"></ion-icon>
           <p>Portfolio</p>
         </div>
-        <div class="button" tabindex="1">
+        <div class="button" tabindex="1" (click)="component = 'news'">
           <ion-icon name="newspaper-outline"></ion-icon>
           <p>News</p>
         </div>
-        <div class="button" tabindex="1">
+        <div class="button" tabindex="1" (click)="component = 'market'">
           <ion-icon name="stats-chart-outline"></ion-icon>
           <p>Market</p>
           <ion-icon id="marketArrow" slot="end" name="chevron-down-outline" (click)="displayCompanies()"></ion-icon>
         </div>
         <div id="marketContainer">
-          <div class="marketButton button" tabindex="1">
-            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+          <div class="marketButton button" tabindex="1" (click)="component = 'company1'">
             <p>Company #1</p>
           </div>
-          <div class="marketButton button" tabindex="1">
-            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+          <div class="marketButton button" tabindex="1" (click)="component = 'company2'">
             <p>Company #2</p>
           </div>
-          <div class="marketButton button" tabindex="1">
-            <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
+          <div class="marketButton button" tabindex="1" (click)="component = 'company3'">
             <p>Company #3</p>
           </div>
         </div>
@@ -66,7 +63,13 @@
     </div>
   </div>
   <div id="component">
-    <app-portfolio></app-portfolio>
+    <app-portfolio *ngIf="component == 'portfolio'"></app-portfolio>
+    <app-news *ngIf="component == 'news'"></app-news>
+    <app-market *ngIf="component == 'market'"></app-market>
+    <app-company *ngIf="component == 'company1'" [currentCompany]=component></app-company>
+    <app-company *ngIf="component == 'company2'" [currentCompany]=component></app-company>
+    <app-company *ngIf="component == 'company3'" [currentCompany]=component></app-company>
+
   </div>
 </body>
 

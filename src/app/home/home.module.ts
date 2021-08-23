@@ -11,6 +11,9 @@ import { HomePage } from './home.page';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
 import { ChartsModule } from 'ng2-charts';
+import { MarketComponent } from './market/market.component';
+import { CompanyComponent } from './market/company/company.component';
+import { NewsComponent } from './news/news.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +22,6 @@ import { ChartsModule } from 'ng2-charts';
     HomePageRoutingModule,
     ChartsModule
   ],
-  declarations: [HomePage, PortfolioComponent]
+  declarations: [HomePage, PortfolioComponent, MarketComponent, CompanyComponent, NewsComponent]
 })
 export class HomePageModule {}
