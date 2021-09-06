@@ -17,6 +17,8 @@ export class CompanyComponent implements OnInit {
   @Input('currentCompany') currentCompany: string
   numStocksTraded: number
 
+  //errors
+  transactionError: boolean = false
   // ngOnChanges(changes: SimpleChanges) {
 
   //   console.log(changes.currentCompany.currentValue);
@@ -26,7 +28,12 @@ export class CompanyComponent implements OnInit {
   // }
 
   transaction (type: string) {
-      this.userService.newTransaction(type, this.currentCompany, this.numStocksTraded, this.companiesService.companies[this.currentCompany].priceDiff[this.userService.day])
+    if (this.numStocksTraded === undefined) {
+      this.transactionError = true
+    } else {
+      // TODO: Add check for having enough money to buy, or stocks to sell.
+      this.userService.newTransaction(type, this.currentCompany, this.numStocksTraded, this.companiesService.companies.get(this.currentCompany).priceDiff[this.userService.day])
+    }
   }
 
 }

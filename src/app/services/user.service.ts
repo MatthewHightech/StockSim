@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { classroom } from '../models/classroom.model';
 import { student } from '../models/student.model';
 import { teacher } from '../models/teacher.model';
+import { transaction } from '../models/transaction.model';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +67,7 @@ export class UserService {
   // classroom
 
   async initClassroom() {
+    console.log("Classcode: ", this.classCode.toString())
     if (this.classCode != undefined) {
       this.classroom = await this.firestore.collection('classrooms').doc<classroom>(this.classCode.toString())
       .get()
@@ -87,11 +89,28 @@ export class UserService {
 
   // write transactions
 
-  newTransaction(type: string, companyName: string, numStockTraded: number, currentPrice: number) {
+  async newTransaction(type: string, companyName: string, numStockTraded: number, currentPrice: number) {
     console.log(`Type: ${type}`)
     console.log(`Company Name: ${companyName}`)
     console.log(`Num Stocks Traded: ${numStockTraded}`)
     console.log(`Current Price: ${currentPrice}`)
+
+    const userID = (await this.auth.currentUser).uid;
+
+    let transaction: transaction = {
+      type: type,
+      date: new Date(Date.now()),
+      company: companyName,
+      numberOfStocks: numStockTraded,
+      priceBoughtAt: currentPrice
+    }
+    this.student.transactions.push(transaction)
+
+    await this.firestore.collection('students').doc(userID).update({
+      transactions: this.student.transactions,
+    });
+
+    console.log("Transaction Uploaded. Current Transactions: ", this.student.transactions)
 
   }
 

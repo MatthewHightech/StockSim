@@ -3,6 +3,7 @@
     <ion-col id="trade" size-lg="12" size-xl="8">
       <ion-title>{{currentCompany}}</ion-title>
 
+      <ion-label *ngIf="transactionError">Error: Please select a number of stocks to trade</ion-label>
       <ion-label>Number of stocks to trade:</ion-label>
       <ion-input [(ngModel)]="numStocksTraded" placeholder="" type="number"></ion-input>
 
