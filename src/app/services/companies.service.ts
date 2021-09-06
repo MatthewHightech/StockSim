@@ -12,10 +12,10 @@ export class CompaniesService {
     private firestore: AngularFirestore,
   ) {}
 
-  companies: company[]
+  companies: Map<string, company>;
 
   async initCompanies() {
-    this.companies = [];
+    this.companies = new Map<string, company>();
     let company;
 
     let size = await this.firestore.collection('companies').get().toPromise().then(res => {
@@ -37,7 +37,7 @@ export class CompaniesService {
         console.log("Connot get Company Data: ", e);
         return null;
       });
-      this.companies.push(company);
+      this.companies.set(company.name, company);
     }
 
     console.log("Company Data: ", this.companies);

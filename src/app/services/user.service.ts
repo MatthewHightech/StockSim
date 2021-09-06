@@ -87,7 +87,13 @@ export class UserService {
 
   // write transactions
 
-  
+  newTransaction(type: string, companyName: string, numStockTraded: number, currentPrice: number) {
+    console.log(`Type: ${type}`)
+    console.log(`Company Name: ${companyName}`)
+    console.log(`Num Stocks Traded: ${numStockTraded}`)
+    console.log(`Current Price: ${currentPrice}`)
+
+  }
 
 
 

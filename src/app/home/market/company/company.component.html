@@ -1,3 +1,14 @@
-<ion-button (click)="transaction('buy', 'company1')">Buy</ion-button>
+<ion-grid id="company">
+  <ion-row>
+    <ion-col id="trade" size-lg="12" size-xl="8">
+      <ion-title>{{currentCompany}}</ion-title>
 
-<ion-button (click)="transaction('sell', 'company1')">Sell</ion-button>
+      <ion-label>Number of stocks to trade:</ion-label>
+      <ion-input [(ngModel)]="numStocksTraded" placeholder="" type="number"></ion-input>
+
+      <ion-button (click)="transaction('buy')">Buy</ion-button>
+
+      <ion-button (click)="transaction('sell')">Sell</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
